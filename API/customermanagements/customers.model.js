@@ -1,27 +1,31 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require("sequelize");
 
 module.exports = model;
 
 function model(sequelize) {
-    const attributes = {
-        customerNumber: { type: DataTypes.STRING, allowNull: false , primaryKey: true},
-        customerName: { type: DataTypes.STRING, allowNull: false },
-        contactLastName: { type: DataTypes.STRING, allowNull: false },
-        contactFirstName: { type: DataTypes.STRING, allowNull: false },
-        phone : { type: DataTypes.STRING, allowNull: false },
-        addressLine1 : { type: DataTypes.STRING, allowNull: false },
-        addressLine2: { type: DataTypes.STRING, allowNull: true },
-        city: { type: DataTypes.STRING, allowNull: false },
-        state: { type: DataTypes.STRING, allowNull: true },
-        postalCode: { type: DataTypes.STRING, allowNull: true },
-        country: { type: DataTypes.STRING, allowNull: false },
-        salesRepEmployeeNumber: { type: DataTypes.STRING, allowNull: true, foreignKey: true},
-        creditLimit: { type: DataTypes.STRING, allowNull: true }
-    };
+  const attributes = {
+    employeeNumber: { type: DataTypes.INTEGER, allowNull: false, primaryKey: true },
+    lastName: { type: DataTypes.STRING, allowNull: false },
+    firstName: { type: DataTypes.STRING, allowNull: false },
+    extension : { type: DataTypes.STRING, allowNull: false },
+    email: { type: DataTypes.STRING, allowNull: false },
+    officeCode: { type: DataTypes.STRING, allowNull: false },
+    reportsTo: { type: DataTypes.INTEGER, allowNull: true },
+    jobTitle: { type: DataTypes.STRING, allowNull: false },
+    passwordHash: { type: DataTypes.STRING, allowNull: false },
+  };
 
-    const options = {
-        timestamps: false
-      };
+  const options = {
+    defaultScope: {
+      // exclude password hash by default
+      attributes: { exclude: ["passwordHash"] },
+    },
+    scopes: {
+      // include hash with this scope
+      withHash: { attributes: {} },
+    },
+    timestamps: false
+  };
 
-    return sequelize.define("Customer", attributes, options);
+  return sequelize.define("Employee", attributes, options);
 }
