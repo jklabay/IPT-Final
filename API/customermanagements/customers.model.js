@@ -1,31 +1,87 @@
-const { DataTypes } = require("sequelize");
+const bcrypt = require("bcryptjs");
+const db = require("_helpers/db");
+const jwt = require("jsonwebtoken");
+const config = require("config.json");
 
-module.exports = model;
+module.exports = {
+  authenticate,
+  getAll,
+  getById,
+  create,
+  update,
+  delete: _delete,
+};
 
-function model(sequelize) {
-  const attributes = {
-    employeeNumber: { type: DataTypes.INTEGER, allowNull: false, primaryKey: true },
-    lastName: { type: DataTypes.STRING, allowNull: false },
-    firstName: { type: DataTypes.STRING, allowNull: false },
-    extension : { type: DataTypes.STRING, allowNull: false },
-    email: { type: DataTypes.STRING, allowNull: false },
-    officeCode: { type: DataTypes.STRING, allowNull: false },
-    reportsTo: { type: DataTypes.INTEGER, allowNull: true },
-    jobTitle: { type: DataTypes.STRING, allowNull: false },
-    passwordHash: { type: DataTypes.STRING, allowNull: false },
-  };
+async function authenticate({ email, password }) {
+  const employee = await db.Employee.scope("withHash").findOne({ where: { email } });
 
-  const options = {
-    defaultScope: {
-      // exclude password hash by default
-      attributes: { exclude: ["passwordHash"] },
-    },
-    scopes: {
-      // include hash with this scope
-      withHash: { attributes: {} },
-    },
-    timestamps: false
-  };
+  if (!employee || !(await bcrypt.compare(password, employee.passwordHash)))
+    throw "Username or password is incorrect";
 
-  return sequelize.define("Employee", attributes, options);
+  // authentication successful
+  const token = jwt.sign({ sub: employee.id }, config.secret, { expiresIn: "7d" });
+  return { ...omitHash(employee.get()), token };
+}
+
+async function getAll() {
+  console.log('execute')
+  return await db.Employee.findAll();
+}
+
+async function getById(id) {
+  return await getEmployee(id);
+}
+
+async function create(params) {
+  // validate
+  if (await db.Employee.findOne({ where: { email: params.email } })) {
+    throw 'Email "' + params.email + '" is already registered';
+  }
+
+  const employee = new db.Employee(params);
+
+  // save employee
+  await employee.save();
+}
+
+async function update(id, params) {
+  const employee = await getEmployee(id);
+
+  // validate
+  const emailChanged = params.email && employee.email !== params.email;
+  if (
+    emailChanged &&
+    (await db.Employee.findOne({ where: { email: params.email } }))
+  ) {
+    throw 'Email "' + params.email + '" is already registered';
+  }
+
+  // hash password if it was entered
+  if (params.password) {
+    params.passwordHash = await bcrypt.hash(params.password, 10);
+  }
+
+  // copy params to employee and save
+  Object.assign(employee, params);
+  await employee.save();
+
+  return omitHash(employee.get());
+}
+
+async function _delete(id) {
+  const employee = await getEmployee(id);
+  await employee.destroy();
+}
+
+// helper functions
+
+async function getEmployee(id) {
+  const employee = await db.Employee.findByPk(id);
+  if (!employee) throw "Employee not found";
+  return employee;
+}
+
+function omitHash(employee) {
+  const { passwordHash, ...userWithoutHash } = employee;
+  return userWithoutHash;
 }
