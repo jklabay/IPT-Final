@@ -23,9 +23,6 @@ async function create(params) {
 
     const customer = new db.Customer(params);
     
-    // hash password
-    customer.passwordHash = await bcrypt.hash(params.password, 10);
-
     // save customer
     await customer.save();
 }
