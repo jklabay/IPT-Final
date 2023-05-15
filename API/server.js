@@ -14,11 +14,15 @@ app.use(cookieParser());
 app.use("/employees", require("./employees/employee.controller"));
 app.use("/offices", require("./offices/office.controller"));
 app.use("/customers", require("./customermanagements/customers.controller"));
+app.use("/products", require("./products/product.controller"));
+// app.use("/customers", require("./COandODM/customerorders.controller"));
+// app.use("/orderdetails", require("./COandODM/customerorders.controller"));
+// app.use("/orders", require("./COandODM/customerorders.controller"));
 
 // global error handler
 app.use(errorHandler);
 
 // start server
 const port =
-  process.env.NODE_ENV === "production" ? process.env.PORT || 80 : 4000;
+  process.env.NODE_ENV === "production" ? process.env.PORT || 80 : 4000; 
 app.listen(port, () => console.log("Server listening on port " + port));
