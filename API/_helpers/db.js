@@ -19,6 +19,9 @@ async function initialize() {
     db.Employee = require('../employees/employee.model')(sequelize);
     db.Office = require('../offices/office.model')(sequelize);
     db.Customer = require('../customermanagements/customers.model')(sequelize);
+    db.Product = require('../products/products.model')(sequelize);
+    db.productLine = require('../productlines/productlines.model')(sequelize);
+
     // sync all models with database
     await sequelize.sync();
 }
