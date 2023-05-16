@@ -26,9 +26,6 @@ async function create(params) {
 
   const office = new db.Office(params);
 
-  // hash password
-  office.passwordHash = await bcrypt.hash(params.password, 10);
-
   // save office
   await office.save();
 }
