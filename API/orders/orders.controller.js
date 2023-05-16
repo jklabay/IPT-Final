@@ -61,8 +61,8 @@ function createSchema(req, res, next) {
     orderDate: Joi.string().required(),
     requiredDate: Joi.string().required(),
     shippedDate: Joi.string().required(),
-    status: Joi.string().allow(null).required(),
-    comments: Joi.string().allow(null).required(),
+    status: Joi.string().required(),
+    comments: Joi.string().required(),
     customerNumber: Joi.string().required(),
     
   });
@@ -75,8 +75,8 @@ function updateSchema(req, res, next) {
     orderDate: Joi.string().empty(""),
     requiredDate: Joi.string().empty(""),
     shippedDate: Joi.string().empty(""),
-    status: Joi.string().allow(null).empty(""),
-    comments: Joi.string().allow(null).empty(""),
+    status: Joi.string().empty(""),
+    comments: Joi.string().empty(""),
     customerNumber: Joi.string().empty(""),
 
   })
