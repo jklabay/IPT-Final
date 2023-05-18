@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import Modal from "./Modal";
+import Modal from "./modal";
 import Axios from "axios";
 
 const AddModal = ({ setShowModal, setReload }: any) => {
@@ -21,7 +21,7 @@ const AddModal = ({ setShowModal, setReload }: any) => {
       extension: extensionRef.current.value,
       email: emailRef.current.value,
       officeCode: officeCodeRef.current.value,
-      reportsTo: Number(reportsToRef.current.value),
+      reportsTo: reportsToRef.current.value == "" ? null : Number(reportsToRef.current.value),
       jobTitle: jobTitleRef.current.value,
     };
 

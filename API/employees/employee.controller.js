@@ -6,7 +6,6 @@ const Role = require("_helpers/role");
 const employeeService = require("./employee.service");
 
 // routes
-
 router.post("/register", createSchema, create);
 router.get("/", getAll);
 router.get("/:id",  getById);

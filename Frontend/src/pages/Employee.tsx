@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import Axios from "axios";
-import AddModal from "../components/AddModal";
-import EditModal from "../components/EditModal";
+import AddModal from "../components/addmodal";
+import EditModal from "../components/editmodal";
 
 const employees = () => {
   const [employees, setEmployees] = useState([]);

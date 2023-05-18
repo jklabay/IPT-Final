@@ -1,7 +1,7 @@
 import { useRef } from "react";
 
 import Axios from "axios";
-import Modal from "./Modal";
+import Modal from "./modal";
 
 const EditModal = ({ setReload, setShowEditModal, editUser }: any) => {
   const employeeNumberRef = useRef<any>("");
@@ -22,7 +22,7 @@ const EditModal = ({ setReload, setShowEditModal, editUser }: any) => {
       extension: extensionRef.current.value,
       email: emailRef.current.value,
       officeCode: officeCodeRef.current.value,
-      reportsTo: Number(reportsToRef.current.value),
+      reportsTo: reportsToRef.current.value == "" ? null : Number(reportsToRef.current.value),
       jobTitle: jobTitleRef.current.value,
     };
 
