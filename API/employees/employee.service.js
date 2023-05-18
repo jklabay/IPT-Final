@@ -4,24 +4,12 @@ const jwt = require("jsonwebtoken");
 const config = require("config.json");
 
 module.exports = {
-  authenticate,
   getAll,
   getById,
   create,
   update,
   delete: _delete,
 };
-
-async function authenticate({ email, password }) {
-  const employee = await db.Employee.scope("withHash").findOne({ where: { email } });
-
-  if (!employee || !(await bcrypt.compare(password, employee.passwordHash)))
-    throw "Username or password is incorrect";
-
-  // authentication successful
-  const token = jwt.sign({ sub: employee.id }, config.secret, { expiresIn: "7d" });
-  return { ...omitHash(employee.get()), token };
-}
 
 async function getAll() {
   console.log('execute')
@@ -40,9 +28,6 @@ async function create(params) {
 
   const employee = new db.Employee(params);
 
-  // hash password
-  employee.passwordHash = await bcrypt.hash(params.password, 10);
-
   // save employee
   await employee.save();
 }
@@ -59,16 +44,11 @@ async function update(id, params) {
     throw 'Email "' + params.email + '" is already registered';
   }
 
-  // hash password if it was entered
-  if (params.password) {
-    params.passwordHash = await bcrypt.hash(params.password, 10);
-  }
-
   // copy params to employee and save
   Object.assign(employee, params);
   await employee.save();
 
-  return omitHash(employee.get());
+  return employee.get();
 }
 
 async function _delete(id) {
@@ -82,9 +62,4 @@ async function getEmployee(id) {
   const employee = await db.Employee.findByPk(id);
   if (!employee) throw "Employee not found";
   return employee;
-}
-
-function omitHash(employee) {
-  const { passwordHash, ...userWithoutHash } = employee;
-  return userWithoutHash;
 }
