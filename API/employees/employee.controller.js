@@ -21,6 +21,7 @@ module.exports = router;
 // route functions
 
 function authenticateSchema(req, res, next) {
+  console.log('test')
   const schema = Joi.object({
     email: Joi.string().required(),
     password: Joi.string().required(),

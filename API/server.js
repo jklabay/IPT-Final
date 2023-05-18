@@ -13,7 +13,7 @@ app.use(cookieParser());
 // api routes
 app.use("/employees", require("./employees/employee.controller"));
 app.use("/offices", require("./offices/office.controller"));
-app.use("/customers", require("./customermanagements/customers.controller"));
+app.use("/customers", require("./customers/customers.controller"));
 app.use("/products", require("./products/product.controller"));
 app.use("/productlines", require("./productlines/productlines.controller"));
 app.use("/payments", require("./payments/payment.controller"));

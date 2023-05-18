@@ -1,4 +1,4 @@
-const bcrypt = require('bcryptjs');
+// const bcrypt = require('bcryptjs');
 const db = require('_helpers/db');
 module.exports = {
     getAll,
@@ -22,20 +22,20 @@ async function create(params) {
     }
 
     const customer = new db.Customer(params);
-    
+
     // save customer
     await customer.save();
 }
 
 async function update(id, params) {
     const customer = await getUser(id);
-  
+
     // copy params to customer and save
     Object.assign(customer, params);
     await customer.save();
-  
+
     return customer.get();
-  }
+}
 
 async function _delete(id) {
     const customer = await getUser(id);
