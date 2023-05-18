@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import Modal from "./modal";
+import Modal from "./Modal";
 import Axios from "axios";
 
 const AddModal = ({ setShowModal, setReload }: any) => {
@@ -25,7 +25,7 @@ const AddModal = ({ setShowModal, setReload }: any) => {
       jobTitle: jobTitleRef.current.value,
     };
 
-    const response = await Axios.post("/employees/create", data);
+    const response = await Axios.post("/employees/register", data);
     setReload((prev: any) => prev + 1);
     setShowModal(false);
     console.log(data);

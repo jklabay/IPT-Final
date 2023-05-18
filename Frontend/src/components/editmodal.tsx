@@ -1,7 +1,7 @@
 import { useRef } from "react";
 
 import Axios from "axios";
-import Modal from "./modal";
+import Modal from "./Modal";
 
 const EditModal = ({ setReload, setShowEditModal, editUser }: any) => {
   const employeeNumberRef = useRef<any>("");
