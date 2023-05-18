@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import Axios from "axios";
-import AddModal from "../components/addmodal";
-import EditModal from "../components/editmodal";
+import AddModal from "../components/AddModal";
+import EditModal from "../components/EditModal";
 
 const employees = () => {
   const [employees, setEmployees] = useState([]);
@@ -102,11 +102,15 @@ const employees = () => {
                   <button
                     onClick={async () => {
                       try {
-                        const response = await Axios.delete(
-                          `employees/${employees.employeeNumber}`
-                        );
-                        console.log(response.data);
-                        setReload((prev) => prev + 1);
+                        var result = confirm("Want to delete?");
+                        if (result) {
+
+                          const response = await Axios.delete(
+                            `employees/${employees.employeeNumber}`
+                          );
+                          console.log(response.data);
+                          setReload((prev) => prev + 1);
+                        }
                       } catch (e) {
                         console.log(e);
                       }
