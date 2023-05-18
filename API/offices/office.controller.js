@@ -9,10 +9,10 @@ const authorize = require("_middleware/authorize");
 
 
 router.post("/create", createSchema, create);
-router.get("/", authorize, getAll);
-router.get("/:id", authorize, getById);
-router.put("/:id", authorize, updateSchema, update);
-router.delete("/:id", authorize, _delete);
+router.get("/", getAll);
+router.get("/:id", getById);
+router.put("/:id", updateSchema, update);
+router.delete("/:id", _delete);
 
 module.exports = router;
 

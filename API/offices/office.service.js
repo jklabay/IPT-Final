@@ -10,7 +10,6 @@ module.exports = {
 };
 
 async function getAll() {
-  console.log('execute')
   return await db.Office.findAll();
 }
 
@@ -20,8 +19,8 @@ async function getById(id) {
 
 async function create(params) {
   // validate
-  if (await db.Office.findOne({ where: { email: params.email } })) {
-    throw 'Email "' + params.email + '" is already registered';
+  if (await db.Office.findOne({ where: { officeCode: params.officeCode } })) {
+    throw 'Office Code "' + params.officeCode + '" is already registered';
   }
 
   const office = new db.Office(params);

@@ -20,7 +20,7 @@ async function getById(id) {
 async function create(params) {
   // validate
   if (await db.Orders.findOne({ where: { orderNumber : params.orderNumber  } })) {
-    throw 'orderNumber "' + params.orderNumber  + '" is already registered';
+    throw 'Order Number "' + params.orderNumber  + '" is already registered';
   }
 
   const orders = new db.Orders(params);
