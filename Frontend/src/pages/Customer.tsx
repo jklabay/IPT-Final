@@ -84,44 +84,44 @@ const employees = () => {
           <tbody>
     {customers.map((customers: any) => (
       <tr key={customers.customerNumber}>
-        <td className="py-2 px-4">{customers.customerNumber}</td>
-        <td className="py-2 px-4">{customers.customerName}</td>
-        <td className="py-2 px-4">{customers.contactLastName}</td>
-        <td className="py-2 px-4">{customers.contactFirstName}</td>
-        <td className="py-2 px-4">{customers.phone}</td>
-        <td className="py-2 px-4">{customers.addressLine1}</td>
-        <td className="py-2 px-4">{customers.addressLine2}</td>
-        <td className="py-2 px-4">{customers.city}</td>
-        <td className="py-2 px-4">{customers.state}</td>
-        <td className="py-2 px-4">{customers.postalCode}</td>
-        <td className="py-2 px-4">{customers.country}</td>
-        <td className="py-2 px-4">{customers.salesRepEmployeeNumber}</td>
-        <td className="py-2 px-4">{customers.creditLimit}</td>
-        <td className="py-2 px-4"></td>
-        <td className="py-2 px-4">
-        {/* <button
+        <td>{customers.customerNumber}</td>
+        <td>{customers.customerName}</td>
+        <td>{customers.contactLastName}</td>
+        <td>{customers.contactFirstName}</td>
+        <td>{customers.phone}</td>
+        <td>{customers.addressLine1}</td>
+        <td>{customers.addressLine2}</td>
+        <td>{customers.city}</td>
+        <td>{customers.state}</td>
+        <td>{customers.postalCode}</td>
+        <td>{customers.country}</td>
+        <td>{customers.salesRepEmployeeNumber}</td>
+        <td>{customers.creditLimit}</td>
+        <td></td>
+        <td>
+         <button
           onClick={async () => {
             setEditUser({
-            customerNumber = customers.customerNumber,
-            customerName =  customers.customerName,
-            contactLastName = customers.contactLastName,
-            contactFirstName = customers.contactFirstName,
-            phone =customers.phone,
-            addressLine1 = customers.addressLine1,
-            addressLine2 = customers.addressLine2,
-            city = customers.city,
-            state = customers.state,
-            postalCode = customers.postalCode,
-            country = customers.country,
-            salesRepEmployeeNumber = customers.salesRepEmployeeNumber,
-            creditLimit = customers.creditLimit,
+              customerNumber: customers.customerCode,
+              customerName: customers.customerName,
+              contactLastName: customers.contactLastName,
+              contactFirstName: customers.contactFirstName,
+              phone: customers.phone,
+              addressLine1: customers.addressLine2,
+              addressLine2: customers.addressLine2,
+              city: customers.city,
+              state: customers.state,
+              postalCode: customers.postalCode,
+              country: customers.customers.country,
+              salesRepEmployeeNumber: customers.salesRepEmployeeNumber,
+              creditLimit: customers.creditLimit,
             });
             setShowEditModal(true);
           }}
-          className="mr-4 bg-blue-500 hover:bg-blue-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
-        > */}
-            {/* &#9998;
-          </button> */}
+          className="m-6 bg-blue-400 hover:bg-blue-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
+        > 
+             &#9998;
+          </button>
           <button
             onClick={async () => {
               try {
@@ -137,7 +137,7 @@ const employees = () => {
                 console.log(e);
               }
             }}
-            className="bg-red-500 hover:bg-red-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
+            className=" bg-red-500 hover:bg-red-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
           >
             &times;
           </button>
