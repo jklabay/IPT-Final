@@ -2,6 +2,7 @@ import {useState, useEffect} from "react";
 import Axios from "axios";
 import AddModal from "../components/addmodal";
 import EditModal from "../components/editmodal";
+import { useNavigate } from "react-router-dom";
 
 const employees = () => {
   const [customers, setCustomers] = useState([]);
@@ -9,6 +10,7 @@ const employees = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [editUser, setEditUser] = useState<any>({});
   const [reload, setReload] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const ourRequest = Axios.CancelToken.source();
@@ -51,6 +53,12 @@ const employees = () => {
           >
             + Add
           </button>
+          <button
+          onClick={() => navigate("/")}
+          className="bg-red-500 hover:bg-neutral-500 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded"
+        >
+          Back
+        </button>
         </div>
         <div className="flex justify-center">
         <table className="text-center w-full border border-black">
