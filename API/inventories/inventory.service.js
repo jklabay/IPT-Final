@@ -1,4 +1,5 @@
 const db = require("_helpers/db");
+const { QueryTypes } = require("sequelize");
 
 module.exports = {
   getAll,
@@ -26,7 +27,11 @@ async function getAll() {
             p.productName, i.quantityAvailable, i.lastUpdated
     FROM inventories i JOIN offices o ON i.officeCode = o.officeCode
                        JOIN products p ON i.productCode = p.productCode
-    ORDER BY country,productName`);
+    ORDER BY country,productName`,
+    {
+      type: QueryTypes.SELECT,
+    }
+  );
 }
 
 

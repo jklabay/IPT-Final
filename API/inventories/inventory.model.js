@@ -22,7 +22,7 @@ function model(sequelize) {
     officeCode: { type: DataTypes.STRING, allowNull: false },
     productCode: { type: DataTypes.STRING, allowNull: false },
     quantityAvailable: { type: DataTypes.INTEGER, allowNull: false },
-    lastUpdated: { type: DataTypes.DATE, allowNull: true }
+    lastUpdated: { type: DataTypes.DATE, defaultValue: DataTypes.NOW ,allowNull: true }
   };
 
   const options = {
