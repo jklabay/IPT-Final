@@ -16,6 +16,7 @@ async function initialize() {
     const sequelize = new Sequelize(database, user, password, { dialect: 'mysql' });
 
     // init models and add them to the exported db object
+    db.sequelize = sequelize; //for raw query
     db.Employee = require('../employees/employee.model')(sequelize);
     db.Office = require('../offices/office.model')(sequelize);
     db.Customer = require('../customers/customers.model')(sequelize);
