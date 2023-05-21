@@ -57,7 +57,7 @@ function createSchema(req, res, next) {
   const schema = Joi.object({
     productCode: Joi.string().required(),
     officeCode: Joi.string().required(),
-    quantityInStock: Joi.number().required(),
+    quantityAvailable: Joi.number().required(),
   });
   validateRequest(req, next, schema);
 }
@@ -66,7 +66,7 @@ function updateSchema(req, res, next) {
   const schema = Joi.object({
     productCode: Joi.string().empty(""),
     officeCode: Joi.string().empty(""),
-    quantityInStock: Joi.number().empty(""),
+    quantityAvailable: Joi.number().empty(""),
   });
   validateRequest(req, next, schema);
 }

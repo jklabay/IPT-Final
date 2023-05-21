@@ -9,7 +9,7 @@ module.exports = {
 };
 
 async function getAll() {
-  return await db.Inventory.findAll({
+  /*return await db.Inventory.findAll({
     include: [
       {
         model: db.Product,
@@ -20,8 +20,15 @@ async function getAll() {
         attributes: ["officeCode", "city", "country"],
       },
     ],
-  });
+  });*/
+  return await db.sequelize.query(
+    `SELECT  i.inventoryId, country, CONCAT(o.city, ", ", o.addressLine1) as officeAddress,
+            p.productName, i.quantityAvailable, i.lastUpdated
+    FROM inventories i JOIN offices o ON i.officeCode = o.officeCode
+                       JOIN products p ON i.productCode = p.productCode
+    ORDER BY country,productName`);
 }
+
 
 async function getById(id) {
   return await getInventory(id);
@@ -38,7 +45,11 @@ async function update(id, params) {
   const inventory = await getInventory(id);
 
   // copy params to inventory and save
+  /*Object.assign(inventory, params);
+  await inventory.save();*/
+
   Object.assign(inventory, params);
+  inventory.lastUpdate = Date.now();
   await inventory.save();
 
   return inventory.get();
