@@ -19,6 +19,7 @@ app.use("/productlines", require("./productlines/productlines.controller"));
 app.use("/payments", require("./payments/payment.controller"));
 app.use("/orders", require("./orders/orders.controller"));
 app.use("/orderdetails", require("./orderdetails/orderdetails.controller"));
+app.use("/inventories", require("./inventories/inventory.controller"));
 
 // app.use("/customers", require("./COandODM/customerorders.controller"));
 // app.use("/orderdetails", require("./COandODM/customerorders.controller"));
