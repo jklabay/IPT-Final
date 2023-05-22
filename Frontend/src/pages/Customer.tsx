@@ -1,14 +1,15 @@
 import {useState, useEffect} from "react";
 import Axios from "axios";
-import AddModal from "../components/addmodal";
-import EditModal from "../components/editmodal";
 import { useNavigate } from "react-router-dom";
 
-const employees = () => {
+import AddCustomerModal from "../components/AddCustomerModal";
+import EditCustomerModal from "../components/EditCustomerModal";
+
+const Customer = () => {
   const [customers, setCustomers] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
-  const [editUser, setEditUser] = useState<any>({});
+  const [editCustomer, setEditCustomer] = useState<any>({});
   const [reload, setReload] = useState(0);
   const navigate = useNavigate();
 
@@ -33,14 +34,14 @@ const employees = () => {
   return (
     <>
       {showModal && (
-        <AddModal setReload={setReload} setShowModal={setShowModal} />
+        <AddCustomerModal setReload={setReload} setShowModal={setShowModal} />
       )}
       {showEditModal && (
-        <EditModal
-          editUser={editUser}
-          setReload={setReload}
-          setShowEditModal={setShowEditModal}
-        />
+        <EditCustomerModal
+        editCustomer={editCustomer}
+        setReload={setReload}
+        setShowEditModal={setShowEditModal}
+      />
       )}
       <div className="bg-green-400 w-full h-14 p-8 items-center flex">
         <h1 className="text-white font-bold text-2xl">Customers Management</h1>
@@ -82,40 +83,41 @@ const employees = () => {
             </tr>
           </thead>
           <tbody>
-    {customers.map((customers: any) => (
-      <tr key={customers.customerNumber}>
-        <td>{customers.customerNumber}</td>
-        <td>{customers.customerName}</td>
-        <td>{customers.contactLastName}</td>
-        <td>{customers.contactFirstName}</td>
-        <td>{customers.phone}</td>
-        <td>{customers.addressLine1}</td>
-        <td>{customers.addressLine2}</td>
-        <td>{customers.city}</td>
-        <td>{customers.state}</td>
-        <td>{customers.postalCode}</td>
-        <td>{customers.country}</td>
-        <td>{customers.salesRepEmployeeNumber}</td>
-        <td>{customers.creditLimit}</td>
+    {customers.map((customer: any) => (
+      <>
+      <tr key={customer.customerNumber}>
+        <td>{customer.customerNumber}</td>
+        <td>{customer.customerName}</td>
+        <td>{customer.contactLastName}</td>
+        <td>{customer.contactFirstName}</td>
+        <td>{customer.phone}</td>
+        <td>{customer.addressLine1}</td>
+        <td>{customer.addressLine2}</td>
+        <td>{customer.city}</td>
+        <td>{customer.state}</td>
+        <td>{customer.postalCode}</td>
+        <td>{customer.country}</td>
+        <td>{customer.salesRepEmployeeNumber}</td>
+        <td>{customer.creditLimit}</td>
         <td></td>
         <td>
          <button
           onClick={async () => {
-            setEditUser({
-              customerNumber: customers.customerCode,
-              customerName: customers.customerName,
-              contactLastName: customers.contactLastName,
-              contactFirstName: customers.contactFirstName,
-              phone: customers.phone,
-              addressLine1: customers.addressLine2,
-              addressLine2: customers.addressLine2,
-              city: customers.city,
-              state: customers.state,
-              postalCode: customers.postalCode,
-              country: customers.customers.country,
-              salesRepEmployeeNumber: customers.salesRepEmployeeNumber,
-              creditLimit: customers.creditLimit,
-            });
+            setEditCustomer({
+              customerNumber: customer.customerNumber,
+              customerName: customer.customerName,
+              contactLastName: customer.contactLastName,
+              contactFirstName: customer.contactFirstName,
+              phone: customer.phone,
+              addressLine1: customer.addressLine1,
+              addressLine2: customer.addressLine2,
+              city: customer.city,
+              state: customer.state,
+              postalCode: customer.postalCode,
+              country: customer.country,
+              salesRepEmployeeNumber: customer.salesRepEmployeeNumber,
+              creditLimit: customer.creditLimit,
+            });  
             setShowEditModal(true);
           }}
           className="m-6 bg-blue-400 hover:bg-blue-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
@@ -143,8 +145,8 @@ const employees = () => {
           </button>
         </td>
       </tr>
+      </>
     ))}
-
           </tbody>
         </table>
         </div>
@@ -153,4 +155,4 @@ const employees = () => {
   );
 };
 
-export default employees;
+export default Customer;
