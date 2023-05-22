@@ -65,19 +65,19 @@ const Customer = () => {
         <table className="text-center w-full border border-black">
           <thead className="bg-green-500">
             <tr>
-              <th className="py-2 px-4 text-white">Customer Number</th>
-              <th className="py-2 px-4 text-white">Customer Name</th>
-              <th className="py-2 px-4 text-white">Contact Last Name</th>
-              <th className="py-2 px-4 text-white">Contact First Name</th>
-              <th className="py-2 px-4 text-white">Phone</th>
-              <th className="py-2 px-4 text-white">Address Line 1</th>
-              <th className="py-2 px-4 text-white">Address Line 2</th>
-              <th className="py-2 px-4 text-white">City</th>
-              <th className="py-2 px-4 text-white">State</th>
-              <th className="py-2 px-4 text-white">Postal Code</th>
-              <th className="py-2 px-4 text-white">Country</th>
-              <th className="py-2 px-4 text-white">Sales Rep Employee Number</th>
-              <th className="py-2 px-4 text-white">Credit Limit</th>
+              <th className="py-2 px-4 text-white border-double">Customer Number</th>
+              <th className="py-2 px-4 text-white border-double">Customer Name</th>
+              <th className="py-2 px-4 text-white border-double">Contact Last Name</th>
+              <th className="py-2 px-4 text-white border-double">Contact First Name</th>
+              <th className="py-2 px-4 text-white border-double">Phone</th>
+              <th className="py-2 px-4 text-white border-double">Address Line 1</th>
+              <th className="py-2 px-4 text-white border-double">Address Line 2</th>
+              <th className="py-2 px-4 text-white border-double">City</th>
+              <th className="py-2 px-4 text-white border-double">State</th>
+              <th className="py-2 px-4 text-white border-double">Postal Code</th>
+              <th className="py-2 px-4 text-white border-double">Country</th>
+              <th className="py-2 px-4 text-white border-double">Sales Rep Employee Number</th>
+              <th className="py-2 px-4 text-white border-double">Credit Limit</th>
               <th className="bg-green-500"></th>
               <th className="bg-green-500"></th>
             </tr>
@@ -86,19 +86,19 @@ const Customer = () => {
     {customers.map((customer: any) => (
       <>
       <tr key={customer.customerNumber}>
-        <td>{customer.customerNumber}</td>
-        <td>{customer.customerName}</td>
-        <td>{customer.contactLastName}</td>
-        <td>{customer.contactFirstName}</td>
-        <td>{customer.phone}</td>
-        <td>{customer.addressLine1}</td>
-        <td>{customer.addressLine2}</td>
-        <td>{customer.city}</td>
-        <td>{customer.state}</td>
-        <td>{customer.postalCode}</td>
-        <td>{customer.country}</td>
-        <td>{customer.salesRepEmployeeNumber}</td>
-        <td>{customer.creditLimit}</td>
+        <td className="border-double">{customer.customerNumber}</td>
+        <td className="border-double">{customer.customerName}</td>
+        <td className="border-double">{customer.contactLastName}</td>
+        <td className="border-double">{customer.contactFirstName}</td>
+        <td className="border-double">{customer.phone}</td>
+        <td className="border-double">{customer.addressLine1}</td>
+        <td className="border-double">{customer.addressLine2}</td>
+        <td className="border-double">{customer.city}</td>
+        <td className="border-double">{customer.state}</td>
+        <td className="border-double">{customer.postalCode}</td>
+        <td className="border-double">{customer.country}</td>
+        <td className="border-double"> {customer.salesRepEmployeeNumber}</td>
+        <td >{customer.creditLimit}</td>
         <td></td>
         <td>
          <button
@@ -130,7 +130,7 @@ const Customer = () => {
                 const result = confirm("Want to delete?");
                 if (result) {
                   const response = await Axios.delete(
-                    `customers/${customers.customerNumber}`
+                    `customers/${customer.customerNumber}`
                   );
                   console.log(response.data);
                   setReload((prev) => prev + 1);
