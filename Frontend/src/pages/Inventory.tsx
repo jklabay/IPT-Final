@@ -2,15 +2,15 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 
-import AddModal from "../components/addmodal";
-import EditModal from "../components/editmodal";
+import AddModal from "../components/AddInventoryModal";
+import EditModal from "../components/EditInventoryModal";
 
 
 const Inventory = () => {
-  const [inventories, setCustomer] = useState([]);
+  const [inventories, setInventory] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
-  const [editUser, setEditUser] = useState<any>({});
+  const [editInventory, setEditInventory] = useState<any>({});
   const [reload, setReload] = useState(0);
   const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ const Inventory = () => {
         const response = await Axios.get("/inventories", {
           cancelToken: ourRequest.token,
         });
-        setCustomer(response.data);
+        setInventory(response.data);
       } catch (error) {
         console.log(error);
       }
@@ -39,7 +39,7 @@ const Inventory = () => {
       )}
       {showEditModal && (
         <EditModal
-          editUser={editUser}
+          editInventory={editInventory}
           setReload={setReload}
           setShowEditModal={setShowEditModal}
         />
@@ -68,26 +68,32 @@ const Inventory = () => {
         >
           <thead className="h-[20px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-20 dark:opacity-100">
             <tr>
-              <th>Product Code</th>
-              <th>Quantity In Stock</th>
-              <th>Office Code</th>
+              <th>Inventory ID</th>
+              <th>Country</th>
+              <th>Office Address</th>
+              <th>Product Name</th>
+              <th>Quantity Available</th>
+              <th>Last Updated</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody className = "h-[20px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-20 dark:opacity-100">
             {inventories.map((inventory: any, index: number) => (
               <>
-              <tr key={inventory.productCode}>
-                <td>{inventory.productCode}</td>
-                <td>{inventory.quantityInStock}</td>
-                <td>{inventory.officeCode}</td>
+              <tr key={inventory.inventoryId}>
+                <td>{inventory.inventoryId}</td>
+                <td>{inventory.country}</td>
+                <td>{inventory.officeAddress}</td>
+                <td>{inventory.productName}</td>
+                <td>{inventory.quantityAvailable}</td>
+                <td>{inventory.lastUpdated}</td>
                 <td>
                   <button
                     onClick={async () => {
-                      setEditUser({
+                      setEditInventory({
+                        officeCode: inventory.officeCode,
                         productCode: inventory.productCode,
-                        quantityInStock: inventory.quantityInStock,
-                        officeCode: inventory.officeCode
+                        quantityAvailable: inventory.quantityAvailable,
                       });
                       setShowEditModal(true);
                     }}
@@ -102,7 +108,7 @@ const Inventory = () => {
                         if (result) {
 
                           const response = await Axios.delete(
-                            `invetories/${inventory.productCode}`
+                            `invetories/${inventory.inventoryId}`
                           );
                           console.log(response.data);
                           setReload((prev) => prev + 1);
@@ -119,7 +125,7 @@ const Inventory = () => {
               </tr>
               {index !== inventories.length - 1 && (
                   <tr className="spacing-row">
-                    <td colSpan={4} className="h-4">
+                    <td colSpan={7} className="h-7">
                       <hr className="border-gray-400" />
                     </td>
                   </tr>
