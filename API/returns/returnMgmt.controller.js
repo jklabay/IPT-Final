@@ -48,7 +48,7 @@ function update(req, res, next) {
 function _delete(req, res, next) {
   returnMgmtService
     .delete(req.params.id)
-    .then(() => res.json({ message: "Inventory deleted" }))
+    .then(() => res.json({ message: "Return product is deleted" }))
     .catch(next);
 }
 
@@ -59,8 +59,7 @@ function createSchema(req, res, next) {
     productCode: Joi.string().required(),
     officeCode: Joi.string().required(),
     returnedQuantity: Joi.number().required(),
-    returnDate: Joi.number().required(),
-    reason: Joi.number().required()
+    reason: Joi.string().required()
   });
   validateRequest(req, next, schema);
 }
@@ -69,8 +68,7 @@ function updateSchema(req, res, next) {
   const schema = Joi.object({
     officeCode: Joi.string().required(),
     returnedQuantity: Joi.number().required(),
-    returnDate: Joi.number().required(),
-    reason: Joi.number().required()
+    reason: Joi.string().required()
   });
   validateRequest(req, next, schema);
 }

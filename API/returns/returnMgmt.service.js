@@ -18,24 +18,15 @@ async function getAll() {
       },
       {
         model: db.Office,
-        attributes: ["officeCode", "city", "country"],
+        attributes: ["officeCode", "country", "city", "addressLine1"],
       },
     ],
+    where: {isActive: '1'}
   });
-  /*return await db.sequelize.query(
-    `SELECT  i.inventoryId, country, CONCAT(o.city, ", ", o.addressLine1) as officeAddress,
-            p.productName, i.quantityAvailable, i.lastUpdated
-    FROM inventories i JOIN offices o ON i.officeCode = o.officeCode
-                       JOIN products p ON i.productCode = p.productCode
-    ORDER BY country,productName`,
-    {
-      type: QueryTypes.SELECT,
-    }
-  );*/
 }
 
 async function getById(id) {
-  return await getInventory(id);
+  return await getReturn(id);
 }
 
 async function create(params) {
@@ -50,6 +41,7 @@ async function update(id, params) {
 
   // copy params to inventory and save
   Object.assign(returns, params);
+  returnMgmt.returnDate = Date.now();
   await returnMgmt.save();
 
   return returnMgmt.get();
@@ -57,13 +49,19 @@ async function update(id, params) {
 
 async function _delete(id) {
   const returnMgmt = await getReturn(id);
-  await returnMgmt.destroy();
+  
+  //const inventory = await getInventory(id);
+  
+  returnMgmt.isActive = '0';
+  await returnMgmt.save();
+
+  return returnMgmt.get();
 }
 
 // helper functions
 
 async function getReturn(id) {
-  const returnMgmt = await db.Return.findByPk(id);
+  const returnMgmt = await db.Return.findOne({where: {isActive : 1, returnId: id}});
   if (!returnMgmt) throw "Not found";
   return returnMgmt;
 }
