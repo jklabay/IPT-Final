@@ -35,9 +35,9 @@ const AddModal = ({ setShowModal, setReload }: any) => {
   return (
     <Modal
       onClick={() => setShowModal(false)}
-      className="flex flex-col justify-center items-center bg-white"
+      className="flex flex-col justify-center items-center bg-gradient-to-r from-slate-400 to-lime-500 antialiased leading-relaxed"
     >
-      <h1 className="font-bold text-[2rem] mb-[1.5rem] text-blue-500">
+      <h1 className="font-bold text-[2rem] mb-[1.5rem] text-slate-800">
         Add Employee
       </h1>
       <form onSubmit={submitHandler}>
@@ -55,7 +55,7 @@ const AddModal = ({ setShowModal, setReload }: any) => {
                   ref={employeeNumberRef}
                   id="employeeNumber"
                   type="text"
-                  className="block mt-[0.5rem] bg-white border border-solid border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
+                  className="block mt-[0.5rem] bg-white border border-solid border-slate-500 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
                 />
               </div>
               <div className="mb-4">
@@ -69,7 +69,7 @@ const AddModal = ({ setShowModal, setReload }: any) => {
                   ref={lastNameRef}
                   id="lastName"
                   type="text"
-                  className="block mt-[0.5rem] bg-white border border-solid border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
+                  className="block mt-[0.5rem] bg-white border border-solid border-slate-500 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
                 />
               </div>
               <div className="block mb-4">
@@ -83,7 +83,7 @@ const AddModal = ({ setShowModal, setReload }: any) => {
                   ref={firstNameRef}
                   id="firstName"
                   type="text"
-                  className="block mt-[0.5rem] bg-white border border-solid border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
+                  className="block mt-[0.5rem] bg-white border border-solid border-slate-500 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
                 />
               </div>
               <div className="mb-[1rem]">
@@ -97,7 +97,7 @@ const AddModal = ({ setShowModal, setReload }: any) => {
                   ref={extensionRef}
                   id="extension"
                   type="text"
-                  className="block mt-[0.5rem] bg-white border border-solid border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
+                  className="block mt-[0.5rem] bg-white border border-solid border-slate-500 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
                 />
               </div>
             </div>
@@ -114,7 +114,7 @@ const AddModal = ({ setShowModal, setReload }: any) => {
                     ref={emailRef}
                     id="email"
                     type="text"
-                    className="block mt-[0.5rem] bg-white border border-solid border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
+                    className="block mt-[0.5rem] bg-white border border-solid border-slate-500 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
                   />
                 </div>
               </div>
@@ -130,7 +130,7 @@ const AddModal = ({ setShowModal, setReload }: any) => {
                     ref={officeCodeRef}
                     id="officeCode"
                     type="text"
-                    className="block mt-[0.5rem] bg-white border border-solid border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
+                    className="block mt-[0.5rem] bg-white border border-solid border-slate-500 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
                   />
                 </div>
               </div>
@@ -146,7 +146,7 @@ const AddModal = ({ setShowModal, setReload }: any) => {
                     ref={reportsToRef}
                     id="reportsTo"
                     type="text"
-                    className="block mt-[0.5rem] bg-white border border-solid border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
+                    className="block mt-[0.5rem] bg-white border border-solid border-slate-500 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
                   />
                 </div>
               </div>
@@ -161,7 +161,7 @@ const AddModal = ({ setShowModal, setReload }: any) => {
                   ref={jobTitleRef}
                   name="jobTitle"
                   id="jobTitle"
-                  className="w-[18rem] h-[2.5rem] block mt-2 px-4 py-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 outline-none"
+                  className="w-[18rem] h-[2.5rem] block mt-2 px-4 py-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-slate-500 rounded transition ease-in-out m-0 outline-none"
                 >
                   <option value="President">President</option>
                   <option value="VP Sales">VP Sales</option>
@@ -173,7 +173,7 @@ const AddModal = ({ setShowModal, setReload }: any) => {
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-blue-500 mt-[1.5rem] text-white h-[2.8rem] rounded w-[20rem] font-semibold transition-all duration-[0.3s] ease-in-out hover:bg-blue-600"
+                className="bg-slate-500 mt-[1.5rem] text-slate-800 h-[2.8rem] rounded w-[20rem] font-semibold transition-all duration-[0.3s] ease-in-out hover:bg-lime-600"
               >
                 Add Employee
               </button>
