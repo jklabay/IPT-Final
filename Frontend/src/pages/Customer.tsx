@@ -62,45 +62,45 @@ const Customer = () => {
         </button>
         </div>
         <div className="flex justify-center">
-        <table className="text-center w-full border border-black">
-          <thead className="bg-green-500">
+        <table className="text-center h-auto w-full border border-black">
+          <thead className="bg-green-500 border border-black">
             <tr>
-              <th className="py-2 px-4 text-white border-double">Customer Number</th>
-              <th className="py-2 px-4 text-white border-double">Customer Name</th>
-              <th className="py-2 px-4 text-white border-double">Contact Last Name</th>
-              <th className="py-2 px-4 text-white border-double">Contact First Name</th>
-              <th className="py-2 px-4 text-white border-double">Phone</th>
-              <th className="py-2 px-4 text-white border-double">Address Line 1</th>
-              <th className="py-2 px-4 text-white border-double">Address Line 2</th>
-              <th className="py-2 px-4 text-white border-double">City</th>
-              <th className="py-2 px-4 text-white border-double">State</th>
-              <th className="py-2 px-4 text-white border-double">Postal Code</th>
-              <th className="py-2 px-4 text-white border-double">Country</th>
-              <th className="py-2 px-4 text-white border-double">Sales Rep Employee Number</th>
-              <th className="py-2 px-4 text-white border-double">Credit Limit</th>
-              <th className="bg-green-500"></th>
-              <th className="bg-green-500"></th>
+              <th className="py-1 px-2 text-white border-double">Customer Number</th>
+              <th className="py-1 px-2 text-white border-double">Customer Name</th>
+              <th className="py-1 px-2 text-white border-double">Contact Last Name</th>
+              <th className="py-1 px-2 text-white border-double">Contact First Name</th>
+              <th className="py-1 px-2 text-white border-double">Phone</th>
+              <th className="py-1 px-2 text-white border-double">Address Line 1</th>
+              <th className="py-1 px-2 text-white border-double">Address Line 2</th>
+              <th className="py-1 px-2 text-white border-double">City</th>
+              <th className="py-1 px-2 text-white border-double">State</th>
+              <th className="py-1 px-2 text-white border-double">Postal Code</th>
+              <th className="py-1 px-2 text-white border-double">Country</th>
+              <th className="py-1 px-2 text-white border-double">Sales Rep Employee Number</th>
+              <th className="py-1 px-2 text-white border-double">Credit Limit</th>
+              <th className="bg-green-500 py-2 px-2"></th>
+              <th className="bg-green-500 py-2 px-2"></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="border border-black">
     {customers.map((customer: any) => (
       <>
-      <tr key={customer.customerNumber}>
-        <td className="border-double">{customer.customerNumber}</td>
-        <td className="border-double">{customer.customerName}</td>
-        <td className="border-double">{customer.contactLastName}</td>
-        <td className="border-double">{customer.contactFirstName}</td>
-        <td className="border-double">{customer.phone}</td>
-        <td className="border-double">{customer.addressLine1}</td>
-        <td className="border-double">{customer.addressLine2}</td>
-        <td className="border-double">{customer.city}</td>
-        <td className="border-double">{customer.state}</td>
-        <td className="border-double">{customer.postalCode}</td>
-        <td className="border-double">{customer.country}</td>
-        <td className="border-double"> {customer.salesRepEmployeeNumber}</td>
-        <td >{customer.creditLimit}</td>
-        <td></td>
-        <td>
+      <tr key={customer.customerNumber} className="border-b border-gray-400">
+        <td className="border-double italic hover:not-italic  border border-black">{customer.customerNumber}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.customerName}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.contactLastName}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.contactFirstName}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.phone}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.addressLine1}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.addressLine2}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.city}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.state}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.postalCode}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.country}</td>
+        <td className="border-double italic hover:not-italic  border border-black"> {customer.salesRepEmployeeNumber}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.creditLimit}</td>
+        <td className="py-2">
+          <div className="flex items-center">
          <button
           onClick={async () => {
             setEditCustomer({
@@ -143,6 +143,7 @@ const Customer = () => {
           >
             &times;
           </button>
+          </div>
         </td>
       </tr>
       </>

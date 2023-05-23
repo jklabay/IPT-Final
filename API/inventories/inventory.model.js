@@ -18,11 +18,12 @@ module.exports = model;
 
 function model(sequelize) {
   const attributes = {
-    inventoryId: { type: DataTypes.INTEGER, primaryKey: true, allowNull: false },
+    inventoryId: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, allowNull: false },
     officeCode: { type: DataTypes.STRING, allowNull: false },
     productCode: { type: DataTypes.STRING, allowNull: false },
     quantityAvailable: { type: DataTypes.INTEGER, allowNull: false },
-    lastUpdated: { type: DataTypes.DATE, defaultValue: DataTypes.NOW ,allowNull: true }
+    lastUpdated: { type: DataTypes.DATE, defaultValue: DataTypes.NOW, allowNull: false },
+    isActive: { type: DataTypes.CHAR, defaultValue: '1', allowNull: false}
   };
 
   const options = {

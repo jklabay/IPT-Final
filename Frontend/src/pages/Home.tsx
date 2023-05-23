@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   return (
-    <body className ="bg-gradient-to-r from-sky-900 to-rose-900 antialiased leading-relaxed"> 
+    <body className ="bg-gradient-to-r from-slate-400 to-lime-500 antialiased leading-relaxed"> 
     <div className="flex flex-col items-center justify-center min-h-screen ">
       <h1 className="text-8xl font-bold mb-4 text-gray-100">Select</h1>
       <div className="justify-center gap-4 p-4 rounded w-[350px] flex flex-row">
