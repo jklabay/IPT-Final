@@ -45,7 +45,7 @@ const EditProductModal = ({
       onClick={() => setShowEditModal(false)}
       className="flex flex-col justify-center items-center  bg-gradient-to-r from-green-500 to-yellow-500"
     >
-      <h1 className="font-bold text-[2rem] mb-[1.5rem] text-black-500">
+      <h1 className="font-bold text-[2rem] mb-[1.5rem] text-white">
         Edit Product
       </h1>
       <form onSubmit={submitHandler}>
@@ -55,7 +55,7 @@ const EditProductModal = ({
               <div className="mb-4">
                 <label
                   htmlFor="productCode"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-white text-[1.15rem]"
                 >
                   Product Code
                 </label>
@@ -70,7 +70,7 @@ const EditProductModal = ({
               <div className="mb-4">
                 <label
                   htmlFor="productName"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-white text-[1.15rem]"
                 >
                   Product Name
                 </label>
@@ -85,7 +85,7 @@ const EditProductModal = ({
               <div className="block mb-4">
                 <label
                   htmlFor="productLine"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-white text-[1.15rem]"
                 >
                   Product Line
                 </label>
@@ -100,7 +100,7 @@ const EditProductModal = ({
               <div className="mb-[1rem]">
                 <label
                   htmlFor="productScale"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-white text-[1.15rem]"
                 >
                   Product Scale
                 </label>
@@ -116,7 +116,7 @@ const EditProductModal = ({
                 <div className="mb-[1rem]">
                   <label
                     htmlFor="productVendor"
-                    className="font-semibold text-[1.15rem]"
+                    className="font-semibold text-white text-[1.15rem]"
                   >
                     Product Vendor
                   </label>
@@ -135,7 +135,7 @@ const EditProductModal = ({
                 <div className="mb-[1rem]">
                   <label
                     htmlFor="productDescCode"
-                    className="font-semibold text-[1.15rem]"
+                    className="font-semibold text-white text-[1.15rem]"
                   >
                     Product Description
                   </label>
@@ -152,7 +152,7 @@ const EditProductModal = ({
                 <div className="mb-[1rem]">
                   <label
                     htmlFor="quantityInStock"
-                    className="font-semibold text-[1.15rem]"
+                    className="font-semibold text-white text-[1.15rem]"
                   >
                     Quantity In Stock
                   </label>
@@ -168,7 +168,7 @@ const EditProductModal = ({
               <div className="block mb-4">
                 <label
                   htmlFor="buyPrice"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-white text-[1.15rem]"
                 >
                   Buy Price
                 </label>
@@ -181,7 +181,7 @@ const EditProductModal = ({
                 />
               </div>
               <div className="block mb-4">
-                <label htmlFor="MSRP" className="font-semibold text-[1.15rem]">
+                <label htmlFor="MSRP" className="font-semibold text-white text-[1.15rem]">
                   MSRP
                 </label>
                 <input
@@ -196,7 +196,7 @@ const EditProductModal = ({
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-yellow-600 mt-[1.5rem] text-black h-[2.8rem] rounded w-[20rem] font-semibold transition-all duration-[0.3s] ease-in-out hover:bg-green-600"
+                className="bg-yellow-600 mt-[1.5rem] text-white h-[2.8rem] rounded w-[20rem] font-semibold transition-all duration-[0.3s] ease-in-out hover:bg-green-600"
               >
                 Update Product
               </button>

@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import Modal from "./Modal";
+import Modal from "./modal";
 import Axios from "axios";
 
 const AddProductModal = ({ setShowModal, setReload }: any) => {
@@ -36,9 +36,9 @@ const AddProductModal = ({ setShowModal, setReload }: any) => {
   return (
     <Modal
       onClick={() => setShowModal(false)}
-      className="flex flex-col justify-center items-center  bg-gradient-to-r from-green-500 to-yellow-500"
+      className="flex flex-col justify-center items-center bg-white"
     >
-      <h1 className="font-bold text-[2rem] mb-[1.5rem] text-white">
+      <h1 className="font-bold text-[2rem] mb-[1.5rem] text-sky-400">
         Add Product
       </h1>
       <form onSubmit={submitHandler}>
@@ -48,7 +48,7 @@ const AddProductModal = ({ setShowModal, setReload }: any) => {
               <div className="mb-4">
                 <label
                   htmlFor="productCode"
-                  className="font-semibold  text-white text-[1.15rem]"
+                  className="font-semibold text-[1.15rem]"
                 >
                   Product Code
                 </label>
@@ -56,13 +56,13 @@ const AddProductModal = ({ setShowModal, setReload }: any) => {
                   ref={productCode}
                   id="productCode"
                   type="text"
-                  className="block mt-[0.5rem] bg-white border border-solid  hover:bg-yellow-200 border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
+                  className="block mt-[0.5rem] bg-white border border-solid border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
                 />
               </div>
               <div className="mb-4">
                 <label
                   htmlFor="productName"
-                  className="font-semibold text-white text-[1.15rem]"
+                  className="font-semibold text-[1.15rem]"
                 >
                   Product Name
                 </label>
@@ -70,13 +70,13 @@ const AddProductModal = ({ setShowModal, setReload }: any) => {
                   ref={productName}
                   id="productName"
                   type="text"
-                  className="block mt-[0.5rem] bg-white border border-solid  hover:bg-yellow-200 border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
+                  className="block mt-[0.5rem] bg-white border border-solid border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
                 />
               </div>
               <div className="block mb-4">
                 <label
                   htmlFor="productLine"
-                  className="font-semibold text-white text-[1.15rem]"
+                  className="font-semibold text-[1.15rem]"
                 >
                   Product Line
                 </label>
@@ -84,13 +84,13 @@ const AddProductModal = ({ setShowModal, setReload }: any) => {
                   ref={productLineRef}
                   id="productLine"
                   type="text"
-                  className="block mt-[0.5rem] bg-white border border-solid  hover:bg-yellow-200 border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
+                  className="block mt-[0.5rem] bg-white border border-solid border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
                 />
               </div>
               <div className="mb-[1rem]">
                 <label
                   htmlFor="productScale"
-                  className="font-semibold text-white text-[1.15rem]"
+                  className="font-semibold text-[1.15rem]"
                 >
                   Product Scale
                 </label>
@@ -98,14 +98,14 @@ const AddProductModal = ({ setShowModal, setReload }: any) => {
                   ref={productScaleRef}
                   id="productScale"
                   type="text"
-                  className="block mt-[0.5rem] bg-white border border-solid  hover:bg-yellow-200 border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
+                  className="block mt-[0.5rem] bg-white border border-solid border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
                 />
               </div>
               <div className="flex items-center gap-4">
                 <div className="mb-[1rem]">
                   <label
                     htmlFor="productVendor"
-                    className="font-semibold  text-white text-[1.15rem]"
+                    className="font-semibold text-[1.15rem]"
                   >
                     Product Vendor
                   </label>
@@ -113,7 +113,7 @@ const AddProductModal = ({ setShowModal, setReload }: any) => {
                     ref={productVendorRef}
                     id="productVendor"
                     type="text"
-                    className="block mt-[0.5rem] bg-white border border-solid  hover:bg-yellow-200 border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
+                    className="block mt-[0.5rem] bg-white border border-solid border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
                   />
                 </div>
               </div>
@@ -123,7 +123,7 @@ const AddProductModal = ({ setShowModal, setReload }: any) => {
                 <div className="mb-[1rem]">
                   <label
                     htmlFor="productDesc"
-                    className="font-semibold text-white text-[1.15rem]"
+                    className="font-semibold text-[1.15rem]"
                   >
                     Product Description
                   </label>
@@ -131,7 +131,7 @@ const AddProductModal = ({ setShowModal, setReload }: any) => {
                     ref={productDescRef}
                     id="productDesc"
                     type="text"
-                    className="block mt-[0.5rem] bg-white border border-solid  hover:bg-yellow-200 border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
+                    className="block mt-[0.5rem] bg-white border border-solid border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
                   />
                 </div>
               </div>
@@ -139,7 +139,7 @@ const AddProductModal = ({ setShowModal, setReload }: any) => {
                 <div className="mb-[1rem]">
                   <label
                     htmlFor="quantityInStock"
-                    className="font-semibold text-white text-[1.15rem]"
+                    className="font-semibold text-[1.15rem]"
                   >
                     Quantity In Stock
                   </label>
@@ -147,14 +147,14 @@ const AddProductModal = ({ setShowModal, setReload }: any) => {
                     ref={quantityInStockRef}
                     id="quantityInStock"
                     type="text"
-                    className="block mt-[0.5rem] bg-white border border-solid  hover:bg-yellow-200 border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
+                    className="block mt-[0.5rem] bg-white border border-solid border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
                   />
                 </div>
               </div>
               <div className="block mb-4">
                 <label
                   htmlFor="buyPrice"
-                  className="font-semibold text-white text-[1.15rem]"
+                  className="font-semibold text-[1.15rem]"
                 >
                   Buy Price
                 </label>
@@ -162,25 +162,25 @@ const AddProductModal = ({ setShowModal, setReload }: any) => {
                   ref={buyPriceRef}
                   id="buyPrice"
                   type="text"
-                  className="block mt-[0.5rem] bg-white border border-solid  hover:bg-yellow-200 border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
+                  className="block mt-[0.5rem] bg-white border border-solid border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
                 />
               </div>
               <div className="block mb-4">
-                <label htmlFor="MSRP" className="font-semibold  text-white text-[1.15rem]">
+                <label htmlFor="MSRP" className="font-semibold text-[1.15rem]">
                   MSRP
                 </label>
                 <input
                   ref={msrpRef}
                   id="MSRP"
                   type="text"
-                  className="block mt-[0.5rem] bg-white border border-solid  hover:bg-yellow-200 border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
+                  className="block mt-[0.5rem] bg-white border border-solid border-gray-300 h-[2.5rem] w-[18rem] outline-none p-[1rem] rounded"
                 />
               </div>
             </div>
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-yellow-600 mt-[1.5rem] text-white h-[2.8rem] rounded w-[20rem] font-semibold transition-all duration-[0.3s] ease-in-out hover:bg-green-600"
+                className="bg-sky-400 mt-[1.5rem] text-white h-[2.8rem] rounded w-[20rem] font-semibold transition-all duration-[0.3s] ease-in-out hover:bg-blue-600"
               >
                 Add Product
               </button>

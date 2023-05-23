@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 import AddProductModal from "../components/AddProductModal";
 import EditProductModal from "../components/EditProductModal";
 
@@ -10,7 +10,7 @@ const Product = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [editProduct, setEditProduct] = useState<any>({});
   const [reload, setReload] = useState(0);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const ourRequest = Axios.CancelToken.source();
     const fetchPost = async () => {
@@ -41,23 +41,29 @@ const Product = () => {
           setShowEditModal={setShowEditModal}
         />
       )}
-      <div className="h-14 bg-gradient-to-r from-green-600 to-yellow-300">
-        <h1 className="text-white mt-5 font-bold text-3xl flex justify-center">Product Management</h1>
+      <div className="h-20  flex items-center justify-center bg-gradient-to-r from-green-600 to-yellow-300">
+        <h1 className="text-white font-bold text-5xl  flex justify-center">Product Management</h1>
       </div>
-      <div className="container md:mx-auto mt-8 mb-5">
+      <div className=" container md:mx-auto mt-8 mb-5">
         <div className=" text-right mb-6">
           <button
             onClick={() => setShowModal(true)}
-            className="bg-green-500 hover:bg-green-600 duration-300 transition-all ease-in-out text-black font-semibold py-2 px-4 rounded"
+            className="bg-green-500 hover:bg-green-600 duration-300 transition-all ease-in-out shadow-lg text-white font-semibold py-2 px-4 rounded"
           >
             + Add
           </button>
+          <button
+          onClick={() => navigate("/")}
+          className= "bg-green-500 hover:bg-green-600 duration-300 transition-all ease-in-out shadow-lg text-white font-semibold py-2 px-4 rounded ml-2"
+        >
+          Back
+        </button>
         </div>
         <table
           cellPadding={10}
-          className=" text-center h-auto w-full border  border-black"
+          className=" text-center  h-auto w-full border  border-black"
         >
-          <thead className="border border-black">
+          <thead className=" text-white bg-gradient-to-r from-green-600 to-yellow-300 border border-black">
             <tr>
               <th className="py-2 px-4">Product Code</th>
               <th className="py-2 px-4">Product Name </th>
@@ -102,7 +108,7 @@ const Product = () => {
                       });
                       setShowEditModal(true);
                     }}
-                    className="m-6 my-2 bg-yellow-300 hover:bg-green-600 duration-300 transition-all ease-in-out text-black font-bold py-2 px-4 rounded"
+                    className="m-6 my-2 bg-yellow-300 hover:bg-green-600  duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
                   >
                     &#9998;
                   </button>
@@ -118,7 +124,7 @@ const Product = () => {
                         console.log(e);
                       }
                     }}
-                    className=" m-6 my-2 bg-green-600 hover:bg-yellow-600 duration-300 transition-all ease-in-out text-black font-bold py-2 px-4 rounded"
+                    className=" m-6 my-2 bg-green-600 hover:bg-yellow-300 duration-500 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
                   >
                     &times;
                   </button>

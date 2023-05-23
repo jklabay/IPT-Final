@@ -10,6 +10,8 @@ import Office from "./pages/Office";
 import Product from "./pages/Product";
 import Inventory from "./pages/Inventory";
 import ProductLine from "./pages/Productline";
+import Order from "./pages/Order";
+import Orderdetails from "./pages/Orderdetails";
 
 Axios.defaults.baseURL = "http://localhost:4000";
 
@@ -27,6 +29,8 @@ function App() {
           <Route path="/product" element={<Product />} />
           <Route path="/inventory" element={<Inventory />} />
           <Route path="/productline" element={<ProductLine />} />
+          <Route path="/orders" element={<Order />} />
+          <Route path="/orderdetails" element = {<Orderdetails/>}/>
 
         </Routes>
       </BrowserRouter>
