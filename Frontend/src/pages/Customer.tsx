@@ -1,14 +1,15 @@
 import {useState, useEffect} from "react";
 import Axios from "axios";
-import AddModal from "../components/addmodal";
-import EditModal from "../components/editmodal";
 import { useNavigate } from "react-router-dom";
 
-const employees = () => {
+import AddCustomerModal from "../components/AddCustomerModal";
+import EditCustomerModal from "../components/EditCustomerModal";
+
+const Customer = () => {
   const [customers, setCustomers] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
-  const [editUser, setEditUser] = useState<any>({});
+  const [editCustomer, setEditCustomer] = useState<any>({});
   const [reload, setReload] = useState(0);
   const navigate = useNavigate();
 
@@ -33,14 +34,14 @@ const employees = () => {
   return (
     <>
       {showModal && (
-        <AddModal setReload={setReload} setShowModal={setShowModal} />
+        <AddCustomerModal setReload={setReload} setShowModal={setShowModal} />
       )}
       {showEditModal && (
-        <EditModal
-          editUser={editUser}
-          setReload={setReload}
-          setShowEditModal={setShowEditModal}
-        />
+        <EditCustomerModal
+        editCustomer={editCustomer}
+        setReload={setReload}
+        setShowEditModal={setShowEditModal}
+      />
       )}
       <div className="bg-green-400 w-full h-14 p-8 items-center flex">
         <h1 className="text-white font-bold text-2xl">Customers Management</h1>
@@ -61,61 +62,62 @@ const employees = () => {
         </button>
         </div>
         <div className="flex justify-center">
-        <table className="text-center w-full border border-black">
-          <thead className="bg-green-500">
+        <table className="text-center h-auto w-full border border-black">
+          <thead className="bg-green-500 border border-black">
             <tr>
-              <th className="py-2 px-4 text-white">Customer Number</th>
-              <th className="py-2 px-4 text-white">Customer Name</th>
-              <th className="py-2 px-4 text-white">Contact Last Name</th>
-              <th className="py-2 px-4 text-white">Contact First Name</th>
-              <th className="py-2 px-4 text-white">Phone</th>
-              <th className="py-2 px-4 text-white">Address Line 1</th>
-              <th className="py-2 px-4 text-white">Address Line 2</th>
-              <th className="py-2 px-4 text-white">City</th>
-              <th className="py-2 px-4 text-white">State</th>
-              <th className="py-2 px-4 text-white">Postal Code</th>
-              <th className="py-2 px-4 text-white">Country</th>
-              <th className="py-2 px-4 text-white">Sales Rep Employee Number</th>
-              <th className="py-2 px-4 text-white">Credit Limit</th>
-              <th className="bg-green-500"></th>
-              <th className="bg-green-500"></th>
+              <th className="py-1 px-2 text-white border-double">Customer Number</th>
+              <th className="py-1 px-2 text-white border-double">Customer Name</th>
+              <th className="py-1 px-2 text-white border-double">Contact Last Name</th>
+              <th className="py-1 px-2 text-white border-double">Contact First Name</th>
+              <th className="py-1 px-2 text-white border-double">Phone</th>
+              <th className="py-1 px-2 text-white border-double">Address Line 1</th>
+              <th className="py-1 px-2 text-white border-double">Address Line 2</th>
+              <th className="py-1 px-2 text-white border-double">City</th>
+              <th className="py-1 px-2 text-white border-double">State</th>
+              <th className="py-1 px-2 text-white border-double">Postal Code</th>
+              <th className="py-1 px-2 text-white border-double">Country</th>
+              <th className="py-1 px-2 text-white border-double">Sales Rep Employee Number</th>
+              <th className="py-1 px-2 text-white border-double">Credit Limit</th>
+              <th className="bg-green-500 py-2 px-2"></th>
+              <th className="bg-green-500 py-2 px-2"></th>
             </tr>
           </thead>
-          <tbody>
-    {customers.map((customers: any) => (
-      <tr key={customers.customerNumber}>
-        <td>{customers.customerNumber}</td>
-        <td>{customers.customerName}</td>
-        <td>{customers.contactLastName}</td>
-        <td>{customers.contactFirstName}</td>
-        <td>{customers.phone}</td>
-        <td>{customers.addressLine1}</td>
-        <td>{customers.addressLine2}</td>
-        <td>{customers.city}</td>
-        <td>{customers.state}</td>
-        <td>{customers.postalCode}</td>
-        <td>{customers.country}</td>
-        <td>{customers.salesRepEmployeeNumber}</td>
-        <td>{customers.creditLimit}</td>
-        <td></td>
-        <td>
+          <tbody className="border border-black">
+    {customers.map((customer: any) => (
+      <>
+      <tr key={customer.customerNumber} className="border-b border-gray-400">
+        <td className="border-double italic hover:not-italic  border border-black">{customer.customerNumber}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.customerName}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.contactLastName}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.contactFirstName}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.phone}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.addressLine1}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.addressLine2}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.city}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.state}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.postalCode}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.country}</td>
+        <td className="border-double italic hover:not-italic  border border-black"> {customer.salesRepEmployeeNumber}</td>
+        <td className="border-double italic hover:not-italic  border border-black">{customer.creditLimit}</td>
+        <td className="py-2">
+          <div className="flex items-center">
          <button
           onClick={async () => {
-            setEditUser({
-              customerNumber: customers.customerCode,
-              customerName: customers.customerName,
-              contactLastName: customers.contactLastName,
-              contactFirstName: customers.contactFirstName,
-              phone: customers.phone,
-              addressLine1: customers.addressLine2,
-              addressLine2: customers.addressLine2,
-              city: customers.city,
-              state: customers.state,
-              postalCode: customers.postalCode,
-              country: customers.customers.country,
-              salesRepEmployeeNumber: customers.salesRepEmployeeNumber,
-              creditLimit: customers.creditLimit,
-            });
+            setEditCustomer({
+              customerNumber: customer.customerNumber,
+              customerName: customer.customerName,
+              contactLastName: customer.contactLastName,
+              contactFirstName: customer.contactFirstName,
+              phone: customer.phone,
+              addressLine1: customer.addressLine1,
+              addressLine2: customer.addressLine2,
+              city: customer.city,
+              state: customer.state,
+              postalCode: customer.postalCode,
+              country: customer.country,
+              salesRepEmployeeNumber: customer.salesRepEmployeeNumber,
+              creditLimit: customer.creditLimit,
+            });  
             setShowEditModal(true);
           }}
           className="m-6 bg-blue-400 hover:bg-blue-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
@@ -128,7 +130,7 @@ const employees = () => {
                 const result = confirm("Want to delete?");
                 if (result) {
                   const response = await Axios.delete(
-                    `customers/${customers.customerNumber}`
+                    `customers/${customer.customerNumber}`
                   );
                   console.log(response.data);
                   setReload((prev) => prev + 1);
@@ -141,10 +143,11 @@ const employees = () => {
           >
             &times;
           </button>
+          </div>
         </td>
       </tr>
+      </>
     ))}
-
           </tbody>
         </table>
         </div>
@@ -153,4 +156,4 @@ const employees = () => {
   );
 };
 
-export default employees;
+export default Customer;
