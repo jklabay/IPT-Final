@@ -40,8 +40,8 @@ const employees = () => {
           setShowEditModal={setShowEditModal}
         />
       )}
-      <div className="bg-blue-500 w-full h-14 p-8 items-center flex">
-        <h1 className="text-white font-bold text-2xl">Employees Management</h1>
+      <div className="bg-gradient-to-r from-amber-200 to-green-600 antialiased leading-relaxed"> 
+        <h1 className="text-black font-bold text-2xl">Employees Management</h1>
       </div>
       <div className="container mx-auto mt-6">
         <div className=" text-right mb-6">
@@ -95,7 +95,7 @@ const employees = () => {
                       });
                       setShowEditModal(true);
                     }}
-                    className="mr-4 bg-blue-400 hover:bg-blue-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
+                    className="mr-4 bg-yellow-400 hover:bg-yellow-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
                   >
                     &#9998;
                   </button>
@@ -115,7 +115,7 @@ const employees = () => {
                         console.log(e);
                       }
                     }}
-                    className="bg-red-400 hover:bg-red-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
+                    className="bg-green-400 hover:bg-green-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
                   >
                     &times;
                   </button>
