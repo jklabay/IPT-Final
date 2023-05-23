@@ -43,6 +43,8 @@ const Home = () => {
           >
             ProductLine
           </button>
+        </div>
+        <div className="justify-center gap-4 p-4 rounded w-[350px] flex flex-row">
           <button
             onClick={() => navigate("/orders")}
             className="bg-sky-100 rounded-full p-5 px-10 text-gray-900 uppercase text-2xl font-semibold tracking-widest my-5 self-start shadow-lg drop-shadow-lg hover:scale-105 duration-300  hover:bg-gradient-to-tr from-bg-rose-600 to-bg-sky-600 hover:text-white hover:shadow-slate-900 hover:shadow-lg hover:drop-shadow-2xl"
