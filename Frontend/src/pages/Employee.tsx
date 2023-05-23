@@ -2,6 +2,8 @@ import {useState, useEffect} from "react";
 import Axios from "axios";
 import AddModal from "../components/addmodal";
 import EditModal from "../components/editmodal";
+import { useNavigate } from "react-router-dom";
+
 
 const employees = () => {
   const [employees, setEmployees] = useState([]);
@@ -9,6 +11,7 @@ const employees = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [editUser, setEditUser] = useState<any>({});
   const [reload, setReload] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const ourRequest = Axios.CancelToken.source();
@@ -40,8 +43,8 @@ const employees = () => {
           setShowEditModal={setShowEditModal}
         />
       )}
-      <div className="bg-gradient-to-r from-amber-200 to-green-600 antialiased leading-relaxed"> 
-        <h1 className="text-black font-bold text-2xl">Employees Management</h1>
+      <div className="h-20  flex items-center justify-center bg-gradient-to-r from-green-600 to-yellow-300">
+        <h1 className="text-white font-bold text-2xl">Employees Management</h1>
       </div>
       <div className="container mx-auto mt-6">
         <div className=" text-right mb-6">
@@ -51,6 +54,13 @@ const employees = () => {
           >
             + Add
           </button>
+          <button
+          onClick={() => navigate("/")}
+          className="bg-green-500 hover:bg-green-600 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded ml-2"
+          >
+
+          Back
+        </button>
         </div>
         <table
           cellPadding={10}
