@@ -44,7 +44,7 @@ const Inventory = () => {
           setShowEditModal={setShowEditModal}
         />
       )}
-      <div className="bg-blue-500 w-full h-14 p-8 items-center flex">
+      <div className="h-14 bg-gradient-to-r from-green-600 to-yellow-300  w-full p-8 items-center flex">
         <h1 className="text-white font-bold text-3xl">Inventory and Return Management</h1>
       </div>
       <div className="container md:mx-auto mt-8 mb-6">
@@ -63,36 +63,41 @@ const Inventory = () => {
         </button>
         </div>
         <table
+         // cellPadding={10}
+         // className=" text-center h-auto w-full border  border-black"
           cellPadding={10}
           className=" text-center h-auto w-full border  border-black"
         >
-          <thead className="h-[20px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-20 dark:opacity-100">
+          <thead className="border border-black">  
             <tr>
-              <th>Inventory ID</th>
-              <th>Country</th>
-              <th>Office Address</th>
-              <th>Product Name</th>
-              <th>Quantity Available</th>
-              <th>Last Updated</th>
-              <th>Action</th>
+              <th className="py-2 px-4">Inventory ID</th>
+              <th className="py-2 px-4">Country</th>
+              <th className="py-2 px-4">Office Address</th>
+              <th className="py-2 px-4">Product Name</th>
+              <th className="py-2 px-4">Quantity Available</th>
+              <th className="py-2 px-4">Last Updated</th>
+              <th className="py-2 px-4">Action</th>
             </tr>
           </thead>
-          <tbody className = "h-[20px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-20 dark:opacity-100">
+          <tbody>
             {inventories.map((inventory: any, index: number) => (
               <>
               <tr key={inventory.inventoryId}>
-                <td>{inventory.inventoryId}</td>
-                <td>{inventory.country}</td>
-                <td>{inventory.officeAddress}</td>
-                <td>{inventory.productName}</td>
-                <td>{inventory.quantityAvailable}</td>
-                <td>{inventory.lastUpdated}</td>
-                <td>
+            
+                <td className="italic hover:not-italic  py-4 p-4 border border-black">{inventory.inventoryId}</td>
+                <td className="italic hover:not-italic  py-4 p-4 border border-black">{inventory.country}</td>
+                <td className="italic hover:not-italic  py-4 p-4 border border-black">{inventory.officeAddress}</td>
+                <td className="italic hover:not-italic  py-4 p-4 border border-black">{inventory.productName}</td>
+                <td className="italic hover:not-italic  py-4 p-4 border border-black">{inventory.quantityAvailable}</td>
+                <td className="italic hover:not-italic  py-4 p-4 border border-black">{inventory.lastUpdated}</td>
+                <td className="italic hover:not-italic  py-8 p-6 border border-black">
                   <button
                     onClick={async () => {
                       setEditInventory({
-                        officeCode: inventory.officeCode,
-                        productCode: inventory.productCode,
+                        inventoryId: inventory.inventoryId,
+                        country: inventory.country,
+                        officeAddress: inventory.officeAddress,
+                        productName: inventory.productName,
                         quantityAvailable: inventory.quantityAvailable,
                       });
                       setShowEditModal(true);
@@ -108,7 +113,7 @@ const Inventory = () => {
                         if (result) {
 
                           const response = await Axios.delete(
-                            `invetories/${inventory.inventoryId}`
+                            `inventories/${inventory.inventoryId}`
                           );
                           console.log(response.data);
                           setReload((prev) => prev + 1);
@@ -125,8 +130,8 @@ const Inventory = () => {
               </tr>
               {index !== inventories.length - 1 && (
                   <tr className="spacing-row">
-                    <td colSpan={7} className="h-7">
-                      <hr className="border-gray-400" />
+                    <td colSpan={7}>
+                  
                     </td>
                   </tr>
                 )}

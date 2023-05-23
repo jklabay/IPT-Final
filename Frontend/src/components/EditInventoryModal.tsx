@@ -25,7 +25,7 @@ const EditInventoryModal = ({
     };
 
     const response = await Axios.put(
-      `/envitories/${editInventory.inventoryId}`,
+      `/inventories/${editInventory.inventoryId}`,
       data
     );
     setReload((prev: any) => prev + 1);
@@ -59,6 +59,7 @@ const EditInventoryModal = ({
                   id="inventoryId"
                   type="text"
                   className="block mt-0.5rem bg-white border border-solid border-gray-300 h-2.5rem w-18rem outline-none p-1rem rounded"
+                  disabled
                 />
               </div>
               <div className="mb-4">
@@ -74,6 +75,7 @@ const EditInventoryModal = ({
                   id="country"
                   type="text"
                   className="block mt-0.5rem bg-white border border-solid border-gray-300 h-2.5rem w-18rem outline-none p-1rem rounded"
+                  disabled
                 />
               </div>
               <div className="block mb-4">
@@ -89,6 +91,7 @@ const EditInventoryModal = ({
                   id="officeAddress"
                   type="text"
                   className="block mt-0.5rem bg-white border border-solid border-gray-300 h-2.5rem w-18rem outline-none p-1rem rounded"
+                  disabled
                 />
               </div>
               <div className="block mb-4">
@@ -104,6 +107,7 @@ const EditInventoryModal = ({
                   id="productName"
                   type="text"
                   className="block mt-0.5rem bg-white border border-solid border-gray-300 h-2.5rem w-18rem outline-none p-1rem rounded"
+                  disabled
                 />
               </div>
               <div className="block mb-4">
@@ -120,6 +124,7 @@ const EditInventoryModal = ({
                     id="quantityAvailable"
                     type="text"
                     className="block mt-0.5rem bg-white border border-solid border-gray-300 h-2.5rem w-18rem outline-none p-1rem rounded"
+                    autoFocus
                   />
                 </div>
               </div>
@@ -130,7 +135,7 @@ const EditInventoryModal = ({
                 type="submit"
                 className="bg-green-500 mt-6 text-white h-10 rounded w-72 font-semibold transition-all duration-300 ease-in-out hover:bg-green-600"
               >
-                Update Customers
+                Update Inventory
               </button>
             </div>
           </div>
