@@ -43,30 +43,29 @@ const employees = () => {
           setShowEditModal={setShowEditModal}
         />
       )}
-      <div className="h-20  flex items-center justify-center bg-gradient-to-r from-green-600 to-yellow-300">
+      <div className="h-20  flex items-center justify-center bg-gradient-to-r  from-slate-400 to-lime-500 ">
         <h1 className="text-white font-bold text-2xl">Employees Management</h1>
       </div>
       <div className="container mx-auto mt-6">
         <div className=" text-right mb-6">
           <button
             onClick={() => setShowModal(true)}
-            className="bg-green-500 hover:bg-green-600 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded"
+            className="bg-slate-600 hover:bg-green-300 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded"
           >
             + Add
           </button>
           <button
           onClick={() => navigate("/")}
-          className="bg-green-500 hover:bg-green-600 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded ml-2"
+          className="bg-slate-600 hover:bg-green-300 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded ml-2"
           >
 
           Back
         </button>
         </div>
-        <table
-          cellPadding={10}
-          className=" text-center h-auto w-full border  border-black"
-        >
-          <thead className=" border border-black">
+        
+        <table className="text-center w-full border border-black">
+          <thead className="bg-lime-300">
+      
             <tr>
               <th>Employee Number</th>
               <th>First Name</th>
@@ -105,7 +104,7 @@ const employees = () => {
                       });
                       setShowEditModal(true);
                     }}
-                    className="mr-4 bg-yellow-400 hover:bg-yellow-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
+                    className="mr-4 bg-green-400 hover:bg-slate-400 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
                   >
                     &#9998;
                   </button>
@@ -125,7 +124,7 @@ const employees = () => {
                         console.log(e);
                       }
                     }}
-                    className="bg-green-400 hover:bg-green-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
+                    className="bg-red-400 hover:bg-slate-400 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
                   >
                     &times;
                   </button>
