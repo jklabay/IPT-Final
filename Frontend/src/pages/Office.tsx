@@ -5,7 +5,7 @@ import EditModal from "../components/editmodal";
 import { useNavigate } from "react-router-dom";
 
 const office = () => {
-
+  
   const [office, setOffices] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
@@ -43,7 +43,7 @@ const office = () => {
           setShowEditModal={setShowEditModal}
         />
       )}
-      <div className="bg-blue-500 w-full h-14 p-8 items-center flex">
+      <div className="h-20  flex items-center justify-center bg-gradient-to-r from-green-600 to-yellow-300">
         <h1 className="text-white font-bold text-2xl">Office Management</h1>
       </div>
       <div className="container mx-auto mt-6 mb-6 ">
@@ -56,7 +56,7 @@ const office = () => {
           </button>
           <button
           onClick={() => navigate("/")}
-          className="bg-red-500 hover:bg-neutral-500 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded"
+          className="bg-green-500 hover:bg-green-600 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded"
         >
           Back
         </button>
@@ -78,7 +78,7 @@ const office = () => {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody className="h-[250px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-20 dark:opacity-100">
+          <tbody className="h-[250px] min-h-[1em] w-px self-stretch bg transition-all ease-in-out text-black font-normal py-2 px-4 rounded">
             {office.map((office: any) => (
               <tr key={office.officeCode}>
                 <td>{office.officeCode}</td>
@@ -106,7 +106,7 @@ const office = () => {
                       });
                       setShowEditModal(true);
                     }}
-                    className="mr-4 bg-blue-400 hover:bg-blue-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
+                    className="mr-4 bg-yellow-400 hover:bg-yellow-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
                   >
 
                     &#9998;
@@ -127,7 +127,7 @@ const office = () => {
                         console.log(e);
                       }
                     }}
-                    className="bg-red-400 hover:bg-red-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
+                    className="bg-green-400 hover:bg-green-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
                   >
                     &times;
                   </button>
