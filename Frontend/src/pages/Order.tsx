@@ -43,7 +43,7 @@ const orders = () => {
           setShowEditModal={setShowEditModal}
         />
       )}
-      <div className="bg-cyan-300 w-full h-15 p-8 items-center flex">
+      <div className=" flex items-center justify-center bg-gradient-to-r from-lime-500 via-green-500 to-lime-500 w-full h-15 p-8 ">
         <h1 className="text-white font-bold text-4xl">Orders</h1>
       </div>
       <div className="container mx-auto mt-6 mb-6 ">
@@ -51,20 +51,20 @@ const orders = () => {
           <div className=" text-left mb-6">
           <button
               onClick={() => navigate("/")}
-              className="bg-sky-400 hover:bg-red-500 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded"
+              className="bg-gradient-to-r from-lime-400 to bg-green-500  text-white hover:text-black hover:shadow-lime-900 hover:shadow-lg hover:drop-shadow-2x2 duration-300 transition-all ease-in-out font-semibold py-2 px-4 rounded"
             >
               Homepage
             </button>
             <button
               onClick={() => navigate("/orderdetails")}
-              className="bg-sky-400 hover:bg-red-500 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded ml-2"
+              className="bg-gradient-to-r from-green-500 to bg-lime-500 text-white hover:text-black hover:shadow-lime-900 hover:shadow-lg hover:drop-shadow-2x2 duration-300 transition-all ease-in-out font-bold py-2 px-4 rounded ml-2"
             >
               Go to Order Details
             </button>
             </div>
           <button
             onClick={() => setShowModal(true)}
-            className="bg-green-500 hover:bg-green-600 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded"
+            className="bg-gradient-to-r from-green-500 to bg-lime-500 text-white hover:text-black hover:shadow-lime-900 hover:shadow-lg hover:drop-shadow-2x2 duration-300 transition-all ease-in-outfont-semibold py-2 px-4 rounded"
           >
             + Add
           </button>
@@ -72,9 +72,9 @@ const orders = () => {
 
         <table
           cellPadding={10}
-          className=" text-center h-auto w-full border  border-black"
+          className=" text-centerh-auto w-full border  border-black"
         >
-          <thead className="h-[20px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-cyan-200 to-transparent opacity-20 dark:opacity-100">
+          <thead className="h-[20px] min-h-[1em] w-px self-stretch text-white bg-gradient-to-r from-green-500 to-green via-lime-500 to-green-500  dark:opacity-10">
             <tr>
               <th className="py-3 px-10">Order Number</th>
               <th className="py-3 px-10">Order Date</th>
@@ -86,17 +86,17 @@ const orders = () => {
               <th className="py-3 px-10">Action</th>
             </tr>
           </thead>
-          <tbody className="h-[20px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-sky-100 to-transparent opacity-20 dark:opacity-100">
+          <tbody className="h-[20px] min-h-[1em] border border-spacing-1 border-black w-px self-stretch bg-gradient-to-tr from-lime-300 via-lime-200 to-lime-300">
             {orders.map((orders: any) => (
               <tr key={orders.orderNumber}>
-                <td className="py-3 px-6">{orders.orderNumber}</td>
-                <td className="py-3 px-6">{orders.orderDate}</td>
-                <td className="py-3 px-6">{orders.requiredDate}</td>
-                <td className="py-3 px-6">{orders.shippedDate}</td>
-                <td className="py-3 px-6">{orders.status}</td>
-                <td className="py-3 px-6">{orders.comments}</td>
-                <td className="py-3 px-6">{orders.customerNumber}</td>
-                <td>
+                <td className="py-3 px-6 border-black border">{orders.orderNumber}</td>
+                <td className="py-3 px-6 border border-black">{orders.orderDate}</td>
+                <td className="py-3 px-6 border border-black">{orders.requiredDate}</td>
+                <td className="py-3 px-6 border border-black">{orders.shippedDate}</td>
+                <td className="py-3 px-6 border border-black">{orders.status}</td>
+                <td className="py-3 px-6 border border-black">{orders.comments}</td>
+                <td className="py-3 px-6 border border-black">{orders.customerNumber}</td>
+                <td className="border border-black">
                   <button
                     onClick={async () => {
                       setEditOrder({
@@ -110,7 +110,7 @@ const orders = () => {
                       });
                       setShowEditModal(true);
                     }}
-                    className="mr-4 bg-blue-400 hover:bg-blue-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
+                    className="mr-4 bg-gradient-to-r from-lime-600 via-lime-300 to bg-lime-600 text-white hover:text-black hover:shadow-lime-900 hover:shadow-lg hover:drop-shadow-2x2 duration-300 transition-all ease-in-out font-bold py-2 px-4 rounded ml-7"
                   >
                     &#9998;
                   </button>

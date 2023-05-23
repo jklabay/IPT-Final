@@ -180,7 +180,7 @@ const AddProductModal = ({ setShowModal, setReload }: any) => {
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-yellow-600 mt-[1.5rem] text-white h-[2.8rem] rounded w-[20rem] font-semibold transition-all duration-[0.3s] ease-in-out hover:bg-green-600"
+                className="bg-gradient-to-r from-lime-600 via-green-900 to bg-lime-600 text-white hover:text-black hover:shadow-lime-900 hover:shadow-lg hover:drop-shadow-2x2 duration-300 transition-all ease-in-out font-bold py-3 px-20 rounded "
               >
                 Add Product
               </button>

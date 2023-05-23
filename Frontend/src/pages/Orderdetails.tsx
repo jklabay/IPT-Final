@@ -43,28 +43,28 @@ const orderdetails = () => {
           setShowEditModal={setShowEditModal}
         />
       )}
-      <div className="bg-cyan-300 w-full h-15 p-8 items-center flex">
-        <h1 className="text-white font-bold text-4xl">Order Details</h1>
+      <div className=" bg-gradient-to-r from-lime-600 via-lime-300 to bg-lime-600 w-full h-15 p-8">
+        <h1 className="text-white  font-bold text-4xl flex justify-center">Order Details</h1>
       </div>
       <div className="container mx-auto mt-6 mb-6 ">
         <div className=" text-right mb-6">
         <div className=" text-left mb-6">
-          <button
+        <button
               onClick={() => navigate("/")}
-              className="bg-sky-400 hover:bg-red-500 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded"
+              className="bg-gradient-to-r from-lime-400 to bg-green-500  text-white hover:text-black hover:shadow-lime-900 hover:shadow-lg hover:drop-shadow-2x2 duration-300 transition-all ease-in-out font-semibold py-2 px-4 rounded"
             >
               Homepage
             </button>
             <button
               onClick={() => navigate("/order")}
-              className="bg-sky-400 hover:bg-red-500 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded ml-2"
+              className="bg-gradient-to-r from-lime-400 to bg-green-500  text-white hover:text-black hover:shadow-lime-900 hover:shadow-lg hover:drop-shadow-2x2 duration-300 transition-all ease-in-out font-semibold py-2 px-4 rounded ml-2"
             >
               Go to Orders
             </button>
             </div>
           <button
             onClick={() => setShowModal(true)}
-            className="bg-green-500 hover:bg-green-600 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded"
+            className="bg-gradient-to-r from-lime-400 to bg-green-500  text-white hover:text-black hover:shadow-lime-900 hover:shadow-lg hover:drop-shadow-2x2 duration-300 transition-all ease-in-out font-semibold py-2 px-4 rounded"
           >
             + Add
           </button>
@@ -74,7 +74,7 @@ const orderdetails = () => {
           cellPadding={10}
           className=" text-center h-auto w-full border  border-black"
         >
-          <thead className="h-[20px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-cyan-200 to-transparent opacity-20 dark:opacity-100">
+          <thead className="h-[20px] min-h-[1em] w-px self-stretch border border-black bg-gradient-to-tr from-lime-500 via-lime-400 to-lime-500 dark:opacity-100">
             <tr>
               <th className="py-3 px-10">Order Number</th>
               <th className="py-3 px-10">Product Code</th>
@@ -84,7 +84,7 @@ const orderdetails = () => {
               <th className="py-3 px-10">Action</th>
             </tr>
           </thead>
-          <tbody className="h-[20px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-sky-100 to-transparent opacity-20 dark:opacity-100">
+          <tbody className="h-[20px] min-h-[1em] w-px  bg-gradient-to-tr from-lime-300 via-yellow-300 to-lime-300">
             {orderdetails.map((orderdetails: any) => (
               <tr key={orderdetails.orderNumber}>
                 <td className="py-3 px-6">{orderdetails.orderNumber}</td>
@@ -104,7 +104,7 @@ const orderdetails = () => {
                       });
                       setShowEditModal(true);
                     }}
-                    className="mr-4 bg-blue-400 hover:bg-blue-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
+                    className="mr-4 bg-gradient-to-r from-lime-600 via-lime-300 to bg-lime-600 text-white hover:text-black hover:shadow-lime-900 hover:shadow-lg hover:drop-shadow-2x2 duration-300 transition-all ease-in-out font-bold py-2 px-4 rounded"
                   >
                     &#9998;
                   </button>
