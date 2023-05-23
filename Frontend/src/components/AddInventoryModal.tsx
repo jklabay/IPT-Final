@@ -7,7 +7,7 @@ const AddInventoryModal = ({ setShowModal, setReload }: any) => {
   const officeCode = useRef<any>("");
   const productCode = useRef<any>("");
   const quantityAvailable = useRef<any>("");
-  const lastUpdated = useRef<any>("");
+ 
 
   const submitHandler = async (e: any) => {
     e.preventDefault();
