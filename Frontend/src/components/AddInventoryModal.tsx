@@ -16,8 +16,6 @@ const AddInventoryModal = ({ setShowModal, setReload }: any) => {
       officeCode: officeCode.current.value,
       productCode: productCode.current.value,
       quantityAvailable: quantityAvailable.current.value,
-      lastUpdated: lastUpdated.current.value == "" ? null : lastUpdated.current.value,
-      
     };
 
     const response = await Axios.post("/customers/create", data);
@@ -69,19 +67,6 @@ const AddInventoryModal = ({ setShowModal, setReload }: any) => {
                   className="block mt-2 bg-white border border-gray-300 h-10 w-72 outline-none p-4 rounded"
                 />
               </div>
-            </div>
-            <div className="flex items-center gap-4">
-                <div className="flex items-center gap-4">
-                    <div className="mb-4">
-                    <label htmlFor="lastUpdated" className="font-semibold text-lg">Last Updated</label>
-                    <input
-                        ref={lastUpdated}
-                        id="lastUpdated"
-                        type="text"
-                        className="block mt-2 bg-white border border-gray-300 h-10 w-72 outline-none p-4 rounded"
-                    />
-                    </div>
-                </div>
             </div>
             <div className="text-center">
               <button
