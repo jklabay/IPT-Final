@@ -15,7 +15,7 @@ const AddOrderdetailsModal = ({ setShowModal, setReload }: any) => {
     const data = {
       orderNumber: Number(orderNumberRef.current.value),
       orderDate: productCode.current.value,
-      requiredDate: quantityOrdered.current.value,
+      quantityOrdered: Number(quantityOrdered.current.value),
       priceEach: priceEach.current.value,
       orderLineNumber: orderLineNumber.current.value,
     };
