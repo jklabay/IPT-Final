@@ -3,6 +3,11 @@ import Axios from "axios";
 import AddModal from "../components/addmodal";
 import EditModal from "../components/editmodal";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 58191e1547218f971de97d6772c2b4b1e9bcd7bf
 const employees = () => {
   const [employees, setEmployees] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -10,6 +15,10 @@ const employees = () => {
   const [editUser, setEditUser] = useState<any>({});
   const [reload, setReload] = useState(0);
   const navigate = useNavigate();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 58191e1547218f971de97d6772c2b4b1e9bcd7bf
   useEffect(() => {
     const ourRequest = Axios.CancelToken.source();
     const fetchPost = async () => {
@@ -40,8 +49,8 @@ const employees = () => {
           setShowEditModal={setShowEditModal}
         />
       )}
-      <div className="bg-gradient-to-r from-amber-200 to-green-600 antialiased leading-relaxed"> 
-        <h1 className="text-black font-bold text-2xl">Employees Management</h1>
+      <div className="h-20  flex items-center justify-center bg-gradient-to-r  from-slate-400 to-lime-500 ">
+        <h1 className="text-white font-bold text-2xl">Employees Management</h1>
       </div>
       <div className="container mx-auto mt-6">
         <div className=" text-right mb-6">
@@ -53,17 +62,34 @@ const employees = () => {
             </button>
           <button
             onClick={() => setShowModal(true)}
+<<<<<<< HEAD
             className="bg-gradient-to-r from-lime-400 to bg-green-500 hover:bg-green-800 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded ml-3"
+=======
+            className="bg-slate-600 hover:bg-green-300 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded"
+>>>>>>> 58191e1547218f971de97d6772c2b4b1e9bcd7bf
           >
             + Add
           </button>
+          <button
+          onClick={() => navigate("/")}
+          className="bg-slate-600 hover:bg-green-300 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded ml-2"
+          >
+
+          Back
+        </button>
         </div>
         
+<<<<<<< HEAD
         <table
           cellPadding={10}
           className=" text-center h-auto w-full border  border-black"
         >
           <thead className=" border border-black">
+=======
+        <table className="text-center w-full border border-black">
+          <thead className="bg-lime-300">
+      
+>>>>>>> 58191e1547218f971de97d6772c2b4b1e9bcd7bf
             <tr>
               <th>Employee Number</th>
               <th>First Name</th>
@@ -102,7 +128,7 @@ const employees = () => {
                       });
                       setShowEditModal(true);
                     }}
-                    className="mr-4 bg-yellow-400 hover:bg-yellow-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
+                    className="mr-4 bg-green-400 hover:bg-slate-400 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
                   >
                     &#9998;
                   </button>
@@ -122,7 +148,7 @@ const employees = () => {
                         console.log(e);
                       }
                     }}
-                    className="bg-green-400 hover:bg-green-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
+                    className="bg-red-400 hover:bg-slate-400 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
                   >
                     &times;
                   </button>
