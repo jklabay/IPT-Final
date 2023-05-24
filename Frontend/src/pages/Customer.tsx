@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -11,6 +11,8 @@ const Customer = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [editCustomer, setEditCustomer] = useState<any>({});
   const [reload, setReload] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(25); // Number of items to display per page
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,6 +32,16 @@ const Customer = () => {
       ourRequest.cancel();
     };
   }, [reload]);
+
+  // Function to handle page change
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  // Calculate the index range of the currently displayed items
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = customers.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
     <>
@@ -151,6 +163,22 @@ const Customer = () => {
     ))}
           </tbody>
         </table>
+        </div>
+        <div className="flex justify-center mt-6">
+          <ul className="flex">
+            {/* Generate pagination buttons */}
+            {customers.map((_, index) => (
+              <li
+                key={index}
+                className={`${
+                  index + 1 === currentPage ? "bg-green-500" : "bg-gray-200"
+                } text-white py-2 px-4 cursor-pointer transition-all duration-300`}
+                onClick={() => handlePageChange(index + 1)}
+              >
+                {index + 1}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </>

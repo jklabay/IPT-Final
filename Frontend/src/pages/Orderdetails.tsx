@@ -56,7 +56,7 @@ const orderdetails = () => {
               Homepage
             </button>
             <button
-              onClick={() => navigate("/order")}
+              onClick={() => navigate("/orders")}
               className="bg-gradient-to-r from-lime-400 to bg-green-500  text-white hover:text-black hover:shadow-lime-900 hover:shadow-lg hover:drop-shadow-2x2 duration-300 transition-all ease-in-out font-semibold py-2 px-4 rounded ml-2"
             >
               Go to Orders
@@ -108,7 +108,7 @@ const orderdetails = () => {
                   >
                     &#9998;
                   </button>
-                  {/* <button
+                  <button
                     onClick={async () => {
                       try {
                         var result = confirm("Want to delete?");
@@ -126,7 +126,7 @@ const orderdetails = () => {
                     className="bg-red-400 hover:bg-red-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
                   >
                     &times;
-                  </button> */}
+                  </button>
                 </td>
               </tr>
             ))}

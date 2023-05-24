@@ -74,7 +74,7 @@ const orders = () => {
           cellPadding={10}
           className=" text-centerh-auto w-full border  border-black"
         >
-          <thead className="h-[20px] min-h-[1em] w-px self-stretch text-white bg-gradient-to-r from-green-500 to-green via-lime-500 to-green-500  dark:opacity-10">
+          <thead className="h-[20px] min-h-[1em] w-px self-stretch border border-black bg-gradient-to-tr from-lime-500 via-lime-400 to-lime-500 dark:opacity-100">
             <tr>
               <th className="py-3 px-10">Order Number</th>
               <th className="py-3 px-10">Order Date</th>

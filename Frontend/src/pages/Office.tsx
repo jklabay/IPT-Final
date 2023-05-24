@@ -60,16 +60,7 @@ const office = () => {
           >
             + Add
           </button>
-<<<<<<< HEAD
           
-=======
-          <button
-          onClick={() => navigate("/")}
-          className="bg-green-500 hover:bg-green-600 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded"
-        >
-          Back
-        </button>
->>>>>>> 58191e1547218f971de97d6772c2b4b1e9bcd7bf
         </div>
 
 
