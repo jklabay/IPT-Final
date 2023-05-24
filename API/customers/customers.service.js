@@ -9,7 +9,7 @@ module.exports = {
 };
 async function getAll() {
     return await db.Customer.findAll(
-       {limit: 20} 
+        
     );
 }
 
