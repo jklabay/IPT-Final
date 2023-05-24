@@ -12,7 +12,7 @@ const Customer = () => {
   const [editCustomer, setEditCustomer] = useState<any>({});
   const [reload, setReload] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(25); // Number of items to display per page
+  const [itemsPerPage] = useState(20); // Number of items to display per page
   const navigate = useNavigate();
 
   useEffect(() => {
