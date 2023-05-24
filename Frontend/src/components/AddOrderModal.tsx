@@ -34,9 +34,9 @@ const AddOrderModal = ({ setShowModal, setReload }: any) => {
   return (
     <Modal
       onClick={() => setShowModal(false)}
-      className="flex flex-col justify-center items-center bg-white"
+      className="flex flex-col justify-center items-center  bg-gradient-to-r from-green-500 to-yellow-500 "
     >
-      <h1 className="font-bold text-[2rem] mb-[1.5rem] text-lime-500">
+      <h1 className="font-bold text-[2rem] mb-[1.5rem] text-white">
         Add Order
       </h1>
       <form onSubmit={submitHandler}>
@@ -46,7 +46,7 @@ const AddOrderModal = ({ setShowModal, setReload }: any) => {
               <div className="mb-4">
                 <label
                   htmlFor="orderNumber"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-[1.15rem] text-white"
                 >
                   Order Number
                 </label>
@@ -60,7 +60,7 @@ const AddOrderModal = ({ setShowModal, setReload }: any) => {
               <div className="mb-4">
                 <label
                   htmlFor="lastName"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-[1.15rem] text-white"
                 >
                   Order Date
                 </label>
@@ -74,7 +74,7 @@ const AddOrderModal = ({ setShowModal, setReload }: any) => {
               <div className="block mb-4">
                 <label
                   htmlFor="requiredDate"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-[1.15rem] text-white"
                 >
                   Required Date
                 </label>
@@ -88,7 +88,7 @@ const AddOrderModal = ({ setShowModal, setReload }: any) => {
               <div className="mb-[1rem]">
                 <label
                   htmlFor="shippedDate"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-[1.15rem] text-white"
                 >
                   Shipped Date
                 </label>
@@ -105,7 +105,7 @@ const AddOrderModal = ({ setShowModal, setReload }: any) => {
                 <div className="mb-[1rem]">
                   <label
                     htmlFor="status"
-                    className="font-semibold text-[1.15rem]"
+                    className="font-semibold text-[1.15rem] text-white"
                   >
                     Status
                   </label>
@@ -121,7 +121,7 @@ const AddOrderModal = ({ setShowModal, setReload }: any) => {
                 <div className="mb-[1rem]">
                   <label
                     htmlFor="comments"
-                    className="font-semibold text-[1.15rem]"
+                    className="font-semibold text-[1.15rem] text-white"
                   >
                     Comments
                   </label>
@@ -137,7 +137,7 @@ const AddOrderModal = ({ setShowModal, setReload }: any) => {
                 <div className="mb-[1rem]">
                   <label
                     htmlFor="customerNumber"
-                    className="font-semibold text-[1.15rem]"
+                    className="font-semibold text-[1.15rem] text-white"
                   >
                     Customer Number
                   </label>

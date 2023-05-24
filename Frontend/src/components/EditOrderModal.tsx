@@ -32,9 +32,9 @@ const EditOrderModal = ({ setShowEditModal, setReload, editOrder }: any) => {
   return (
     <Modal
       onClick={() => setShowEditModal(false)}
-      className="flex flex-col justify-center items-center bg-white"
+      className="flex flex-col justify-center items-center  bg-gradient-to-r from-green-500 to-yellow-500 "
     >
-      <h1 className="font-bold text-[2rem] mb-[1.5rem] text-sky-400">
+      <h1 className="font-bold text-[2rem] mb-[1.5rem] text-white">
         Edit Order
       </h1>
       <form onSubmit={submitHandler}>
@@ -44,7 +44,7 @@ const EditOrderModal = ({ setShowEditModal, setReload, editOrder }: any) => {
               <div className="mb-4">
                 <label
                   htmlFor="orderNumber"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-[1.15rem] text-white"
                 >
                   Order Number
                 </label>
@@ -59,7 +59,7 @@ const EditOrderModal = ({ setShowEditModal, setReload, editOrder }: any) => {
               <div className="mb-4">
                 <label
                   htmlFor="orderDate"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-[1.15rem] text-white"
                 >
                   Order Date
                 </label>
@@ -74,7 +74,7 @@ const EditOrderModal = ({ setShowEditModal, setReload, editOrder }: any) => {
               <div className="block mb-4">
                 <label
                   htmlFor="requiredDate"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-[1.15rem] text-white"
                 >
                   requiredDate
                 </label>
@@ -89,7 +89,7 @@ const EditOrderModal = ({ setShowEditModal, setReload, editOrder }: any) => {
               <div className="mb-[1rem]">
                 <label
                   htmlFor="shippedDate"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-[1.15rem] text-white"
                 >
                   Shipped Date
                 </label>
@@ -107,7 +107,7 @@ const EditOrderModal = ({ setShowEditModal, setReload, editOrder }: any) => {
                 <div className="mb-[1rem]">
                   <label
                     htmlFor="status"
-                    className="font-semibold text-[1.15rem]"
+                    className="font-semibold text-[1.15rem] text-white"
                   >
                     Status
                   </label>
@@ -124,7 +124,7 @@ const EditOrderModal = ({ setShowEditModal, setReload, editOrder }: any) => {
                 <div className="mb-[1rem]">
                   <label
                     htmlFor="comments"
-                    className="font-semibold text-[1.15rem]"
+                    className="font-semibold text-[1.15rem] text-white"
                   >
                     Comments
                   </label>
@@ -141,7 +141,7 @@ const EditOrderModal = ({ setShowEditModal, setReload, editOrder }: any) => {
                 <div className="mb-[1rem]">
                   <label
                     htmlFor="customerNumber"
-                    className="font-semibold text-[1.15rem]"
+                    className="font-semibold text-[1.15rem] text-white"
                   >
                     Customer Number
                   </label>
@@ -158,7 +158,7 @@ const EditOrderModal = ({ setShowEditModal, setReload, editOrder }: any) => {
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-sky-400 mt-[1.5rem] text-white h-[2.8rem] rounded w-[20rem] font-semibold transition-all duration-[0.3s] ease-in-out hover:bg-blue-600"
+                className="bg-yellow-600 mt-[1.5rem] text-white h-[2.8rem] rounded w-[20rem] font-semibold transition-all duration-[0.3s] ease-in-out hover:bg-green-600"
               >
                 Update Order
               </button>
