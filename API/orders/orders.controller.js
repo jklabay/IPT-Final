@@ -57,13 +57,13 @@ function _delete(req, res, next) {
 
 function createSchema(req, res, next) {
   const schema = Joi.object({
-    orderNumber: Joi.string().required(),
-    orderDate: Joi.string().required(),
-    requiredDate: Joi.string().required(),
-    shippedDate: Joi.string().required(),
+    orderNumber: Joi.number().required(),
+    orderDate: Joi.date().required(),
+    requiredDate: Joi.date().required(),
+    shippedDate: Joi.date().allow(null).required(),
     status: Joi.string().required(),
-    comments: Joi.string().required(),
-    customerNumber: Joi.string().required(),
+    comments: Joi.string().allow(null).required(),
+    customerNumber: Joi.number().required(),
     
   });
   validateRequest(req, next, schema);
@@ -72,12 +72,12 @@ function createSchema(req, res, next) {
 function updateSchema(req, res, next) {
   const schema = Joi.object({
     orderNumber: Joi.string().empty(""),
-    orderDate: Joi.string().empty(""),
-    requiredDate: Joi.string().empty(""),
-    shippedDate: Joi.string().empty(""),
+    orderDate: Joi.date().empty(""),
+    requiredDate: Joi.date().empty(""),
+    shippedDate: Joi.date().empty(""),
     status: Joi.string().empty(""),
     comments: Joi.string().empty(""),
-    customerNumber: Joi.string().empty(""),
+    customerNumber: Joi.number().empty(""),
 
   })
   validateRequest(req, next, schema);

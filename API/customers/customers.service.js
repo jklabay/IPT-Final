@@ -8,7 +8,9 @@ module.exports = {
     delete: _delete
 };
 async function getAll() {
-    return await db.Customer.findAll();
+    return await db.Customer.findAll(
+       {limit: 20} 
+    );
 }
 
 async function getById(id) {
