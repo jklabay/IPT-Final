@@ -57,6 +57,12 @@ const Home = () => {
           >
             OrderDetails
           </button>
+          <button
+            onClick={() => navigate("/payments")}
+            className="bg-sky-100 rounded-full p-5 px-10 text-gray-900 uppercase text-2xl font-semibold tracking-widest my-5 self-start shadow-lg drop-shadow-lg hover:scale-105 duration-300  hover:bg-gradient-to-tr from-bg-rose-600 to-bg-sky-600 hover:text-white hover:shadow-slate-900 hover:shadow-lg hover:drop-shadow-2xl"
+          >
+            Payments
+          </button>
       </div>
     </div>
     </body>

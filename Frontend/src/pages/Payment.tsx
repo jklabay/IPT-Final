@@ -43,23 +43,23 @@ const Payment = () => {
           setShowEditModal={setShowEditModal}
         />
       )}
-      <div className="bg-cyan-300 w-full h-15 p-8 items-center flex">
-        <h1 className="text-white font-bold text-4xl">
+      <div className="bg-green-400 w-full h-14 p-8 items-center flex">
+      <h1 className="text-white font-bold text-2xl">
           Payment
         </h1>
       </div>
       <div className="container md:mx-auto mt-8 mb-6">
-        <div className=" text-right mb-6">
+        <div className=" text-right mb-8">
         <div className=" text-left mb-6">
             <button
               onClick={() => navigate("/")}
-              className="bg-sky-400 hover:bg-red-500 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded"
+              className="bg-gradient-to-r from-lime-400 to bg-green-500  text-white hover:text-black hover:shadow-lime-900 hover:shadow-lg hover:drop-shadow-2x2 duration-300 transition-all ease-in-out font-semibold py-2 px-4 rounded"
             >
               Homepage
             </button>
             <button
               onClick={() => navigate("/customer")}
-              className="bg-sky-400 hover:bg-red-500 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded ml-2"
+              className="bg-gradient-to-r from-lime-400 via-green-600 to bg-lime-400 text-white hover:text-black hover:shadow-lime-900 hover:shadow-lg hover:drop-shadow-2x2 duration-300 transition-all ease-in-out font-bold py-2 px-4 rounded"
             >
               Go to Customer
             </button>
@@ -75,16 +75,16 @@ const Payment = () => {
           cellPadding={10}
           className=" text-center h-auto w-full border  border-black"
         >
-          <thead className="h-[20px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-cyan-200 to-transparent opacity-20 dark:opacity-100">
+          <thead className="bg-green-500">
             <tr>
-              <th>Customer Number</th>
-              <th>Check Number</th>
-              <th>Payment Date</th>
-              <th>Amount</th>
-              <th>Action</th>
+              <th className="py-2 px-4">Customer Number</th>
+              <th className="py-2 px-4">Check Number</th>
+              <th className="py-2 px-4">Payment Date</th>
+              <th className="py-2 px-4">Amount</th>
+              <th className="py-2 px-4">Action</th>
             </tr>
           </thead>
-          <tbody className="h-[20px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-sky-100 to-transparent opacity-20 dark:opacity-100">
+          <tbody className="h-[20px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-lime-300 to-transparent opacity-20 dark:opacity-100">
             {payments.map((payments: any, index: number) => (
               <>
                 <tr key={payments.customerNumber}>

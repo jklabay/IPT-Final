@@ -12,6 +12,7 @@ import Inventory from "./pages/Inventory";
 import ProductLine from "./pages/Productline";
 import Order from "./pages/Order";
 import Orderdetails from "./pages/Orderdetails";
+import Payment from "./pages/Payment";
 
 Axios.defaults.baseURL = "http://localhost:4000";
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/productline" element={<ProductLine />} />
           <Route path="/orders" element={<Order />} />
           <Route path="/orderdetails" element = {<Orderdetails/>}/>
+          <Route path="/payments" element = {<Payment/>}/>
 
         </Routes>
       </BrowserRouter>
