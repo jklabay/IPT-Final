@@ -35,9 +35,9 @@ const EditPaymentModal = ({
   return (
     <Modal
       onClick={() => setShowEditModal(false)}
-      className="flex flex-col justify-center items-center bg-white"
+      className="flex flex-col justify-center items-center bg-gradient-to-r from-slate-400 to-lime-500 antialiased leading-relaxed"
     >
-      <h1 className="font-bold text-[2rem] mb-[1.5rem]  text-sky-400">
+      <h1 className="font-bold text-4xl mb-6 text-white">
         Edit Payment
       </h1>
       <form onSubmit={submitHandler}>
@@ -47,7 +47,7 @@ const EditPaymentModal = ({
               <div className="mb-4">
                 <label
                   htmlFor="customerNumber"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-[1.15rem]  text-white"
                 >
                   Customer Number
                 </label>
@@ -61,7 +61,7 @@ const EditPaymentModal = ({
               <div className="mb-4">
                 <label
                   htmlFor="checkNumber"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-[1.15rem]  text-white"
                 >
                 Check Number
                 </label>
@@ -75,7 +75,7 @@ const EditPaymentModal = ({
               <div className="block mb-4">
                 <label
                   htmlFor="paymentDate"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-[1.15rem]  text-white"
                 >
                 Payment Date
                 </label>
@@ -89,7 +89,7 @@ const EditPaymentModal = ({
               <div className="block mb-4">
                 <label
                   htmlFor="amount"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-[1.15rem]  text-white"
                 >
                 Amount
                 </label>
@@ -105,7 +105,14 @@ const EditPaymentModal = ({
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-sky-400 mt-[1.5rem] text-white h-[2.8rem] rounded w-[20rem] font-semibold transition-all duration-[0.3s] ease-in-out hover:bg-blue-600"
+                className="bg-green-500 mt-6
+                text-white h-10 
+                rounded w-72 
+                font-semibold 
+                transition-all 
+                duration-300 
+                ease-in-out
+                hover:bg-green-600"
               >
                 Submit
               </button>
