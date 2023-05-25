@@ -29,9 +29,9 @@ const AddProductLineModal = ({ setShowModal, setReload }: any) => {
   return (
     <Modal
       onClick={() => setShowModal(false)}
-      className="flex flex-col justify-center items-center bg-white"
+      className="flex flex-col justify-center items-center bg-gradient-to-r from-slate-400 to-lime-500 antialiased leading-relaxed"
     >
-      <h1 className="font-bold text-[2rem] mb-[1.5rem] text-blue-500">
+      <h1 className="font-bold text-2rem mb-1.5rem text-white text-4xl py-4">
         Add Product Line
       </h1>
       <form onSubmit={submitHandler}>
@@ -41,7 +41,7 @@ const AddProductLineModal = ({ setShowModal, setReload }: any) => {
               <div className="mb-4">
                 <label
                   htmlFor="productLine"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-[1.15rem] text-white"
                 >
                   Product Line
                 </label>
@@ -55,7 +55,7 @@ const AddProductLineModal = ({ setShowModal, setReload }: any) => {
               <div className="mb-4">
                 <label
                   htmlFor="textDescription"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-[1.15rem] text-white"
                 >
                   Text Description
                 </label>
@@ -69,7 +69,7 @@ const AddProductLineModal = ({ setShowModal, setReload }: any) => {
               <div className="block mb-4">
                 <label
                   htmlFor="htmlDescription"
-                  className="font-semibold text-[1.15rem]"
+                  className="font-semibold text-[1.15rem] text-white"
                 >
                   Html Description
                 </label>
@@ -81,7 +81,7 @@ const AddProductLineModal = ({ setShowModal, setReload }: any) => {
                 />
               </div>
               <div className="mb-[1rem]">
-                <label htmlFor="image" className="font-semibold text-[1.15rem]">
+                <label htmlFor="image" className="font-semibold text-[1.15rem] text-white">
                   Image
                 </label>
                 <input
@@ -95,7 +95,7 @@ const AddProductLineModal = ({ setShowModal, setReload }: any) => {
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-blue-500 mt-[1.5rem] text-white h-[2.8rem] rounded w-[20rem] font-semibold transition-all duration-[0.3s] ease-in-out hover:bg-blue-600"
+                className="bg-green-500 mt-6 text-white h-10 rounded w-72 font-semibold transition-all duration-300 ease-in-out hover:bg-green-600"
               >
                 Add Product Line
               </button>
