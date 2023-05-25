@@ -42,9 +42,9 @@ const EditModal = ({ setReload, setShowEditModal, editUser }: any) => {
   return (
     <Modal
       onClick={() => setShowEditModal(false)}
-      className="flex flex-col justify-center items-center bg-white"
+      className="flex flex-col justify-center items-center bg-gradient-to-r from-slate-400 to-lime-500 antialiased leading-relaxed"
     >
-      <h1 className="font-bold text-[2rem] mb-[1.5rem] text-blue-500">
+      <h1 className="font-bold text-[2rem] mb-[1.5rem] text-slate-800">
         Edit Employee
       </h1>
       <form onSubmit={submitHandler}>
@@ -188,7 +188,7 @@ const EditModal = ({ setReload, setShowEditModal, editUser }: any) => {
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-blue-500 mt-[1.5rem] text-white h-[2.8rem] rounded w-[20rem] font-semibold transition-all duration-[0.3s] ease-in-out hover:bg-blue-600"
+                className="bg-slate-500 mt-[1.5rem] text-slate-800 h-[2.8rem] rounded w-[20rem] font-semibold transition-all duration-[0.3s] ease-in-out hover:bg-lime-600"
               >
                 Submit
               </button>
