@@ -10,7 +10,9 @@ module.exports = {
 };
 
 async function getAll() {
-  return await db.orderDetails.findAll();
+  return await db.orderDetails.findAll({
+    limit: 20,
+  });
 }
 
 async function getById(id) {
