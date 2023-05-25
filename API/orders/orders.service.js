@@ -18,10 +18,7 @@ async function getAll() {
   //   }
   // );
 
-  return await db.Orders.findAll({
-    offset: 0,
-    limit: 20,
-  });
+  return await db.Orders.findAll();
 }
 
 async function getCustomerOrder(id) {
