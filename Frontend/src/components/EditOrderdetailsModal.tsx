@@ -31,7 +31,7 @@ const editOrderdetailsModal = ({ setShowEditModal, setReload, editOrderdetails}:
       onClick={() => setShowEditModal(false)}
       className="flex flex-col justify-center items-center  bg-gradient-to-r from-green-500 to-yellow-500 "
     >
-      <h1 className="font-bold text-[2rem] mb-[1.5rem] text-sky-400">
+      <h1 className="font-bold text-[2rem] mb-[1.5rem] text-white">
         Edit Order
       </h1>
       <form onSubmit={submitHandler}>
