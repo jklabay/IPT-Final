@@ -1,15 +1,15 @@
-import {useState, useEffect} from "react";
-import Axios from "axios";
-import AddModal from "../components/addmodal";
-import EditModal from "../components/editmodal";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Axios from "axios";
+
+import AddOfficeModal from "../components/AddOfficeModal";
+import EditOfficeModal from "../components/EditOfficeModal";
 
 const office = () => {
-  
   const [office, setOffices] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
-  const [editUser, setEditUser] = useState<any>({});
+  const [editOffice, setEditOffice] = useState<any>({});
   const [reload, setReload] = useState(0);
   const navigate = useNavigate();
 
@@ -34,38 +34,48 @@ const office = () => {
   return (
     <>
       {showModal && (
-        <AddModal setReload={setReload} setShowModal={setShowModal} />
+        <AddOfficeModal setReload={setReload} setShowModal={setShowModal} />
       )}
       {showEditModal && (
-        <EditModal
-          editUser={editUser}
+        <EditOfficeModal
+          editOffice={editOffice}
           setReload={setReload}
           setShowEditModal={setShowEditModal}
         />
       )}
-      <div className="h-20  flex items-center justify-center bg-gradient-to-r from-green-600 to-yellow-300">
-        <h1 className="text-white font-bold text-2xl">Office Management</h1>
+      <div className="bg-green-400 w-full h-14 p-8 items-center flex">
+        <h1 className="text-white font-bold text-4xl">Offices</h1>
       </div>
       <div className="container mx-auto mt-6 mb-6 ">
         <div className=" text-right mb-6">
-        <button
+          <div className=" text-left mb-6">
+            <button
               onClick={() => navigate("/")}
-              className="bg-gradient-to-r from-green-500 to bg-lime-500 text-white hover:text-black hover:shadow-lime-900 hover:shadow-lg hover:drop-shadow-2x2 duration-300 transition-all ease-in-out font-bold py-2 px-4 rounded flex justify-right"
+              className="bg-gradient-to-r from-lime-400 to bg-green-500  text-white hover:text-black hover:shadow-lime-900 hover:shadow-lg hover:drop-shadow-2x2 duration-300 transition-all ease-in-out font-semibold py-2 px-4 rounded"
             >
               Homepage
             </button>
+
+            <button
+              onClick={() => navigate("/employee")}
+              className="bg-gradient-to-r from-lime-400 to bg-green-500 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded ml-2"
+            >
+              Go to Employee
+            </button>
+          </div>
           <button
             onClick={() => setShowModal(true)}
-            className="bg-gradient-to-r from-green-500 to bg-lime-500 text-white hover:text-black hover:shadow-lime-900 hover:shadow-lg hover:drop-shadow-2x2 duration-300 transition-all ease-in-out font-bold py-2 px-4 rounded"
+            className="bg-green-500 hover:bg-green-600 duration-300 transition-all ease-in-out text-white font-semibold py-2 px-4 rounded"
           >
             + Add
           </button>
-          
         </div>
 
-
-        <table className="text-center w-full border border-black">
-          <thead className="bg-green-500">
+        <table
+          cellPadding={10}
+          className=" text-center h-auto w-full border  border-black"
+        >
+          <thead className="bg-green-500 border border-black">
             <tr>
               <th>Office Code</th>
               <th>City</th>
@@ -79,7 +89,7 @@ const office = () => {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody className="h-[250px] min-h-[1em] w-px self-stretch bg transition-all ease-in-out text-black font-normal py-2 px-4 rounded">
+          <tbody className="h-[20px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-lime-300 to-transparent opacity-20 dark:opacity-100">
             {office.map((office: any) => (
               <tr key={office.officeCode}>
                 <td>{office.officeCode}</td>
@@ -94,7 +104,7 @@ const office = () => {
                 <td>
                   <button
                     onClick={async () => {
-                      setEditUser({
+                      setEditOffice({
                         officeCode: office.officeCode,
                         phone: office.phone,
                         city: office.city,
@@ -107,17 +117,15 @@ const office = () => {
                       });
                       setShowEditModal(true);
                     }}
-                    className="mr-4 bg-yellow-400 hover:bg-yellow-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
+                    className="m-6 bg-green-500 hover:bg-green-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
                   >
-
                     &#9998;
                   </button>
-                  <button
+                  {/* <button
                     onClick={async () => {
                       try {
                         var result = confirm("Want to delete?");
                         if (result) {
-
                           const response = await Axios.delete(
                             `offices/${office.officeCode}`
                           );
@@ -128,10 +136,10 @@ const office = () => {
                         console.log(e);
                       }
                     }}
-                    className="bg-green-400 hover:bg-green-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
+                    className="bg-red-400 hover:bg-red-600 duration-300 transition-all ease-in-out text-white font-bold py-2 px-4 rounded"
                   >
                     &times;
-                  </button>
+                  </button> */}
                 </td>
               </tr>
             ))}
