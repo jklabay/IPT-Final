@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
-
 import AddModal from "../components/AddInventoryModal";
 import EditModal from "../components/EditInventoryModal";
 
@@ -12,6 +11,8 @@ const Inventory = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [editInventory, setEditInventory] = useState<any>({});
   const [reload, setReload] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(2); // Number of items to display per page
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,6 +32,19 @@ const Inventory = () => {
       ourRequest.cancel();
     };
   }, [reload]);
+
+  // Function to handle page change
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
+
+  // Calculate the index range of the currently displayed items
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = inventories.slice(indexOfFirstItem, indexOfLastItem);
+
+  const totalItems = inventories.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   return (
     <>
@@ -81,7 +95,7 @@ const Inventory = () => {
             </tr>
           </thead>
           <tbody>
-            {inventories.map((inventory: any, index: number) => (
+            {currentItems.map((inventory: any, index: number) => (
               <>
               <tr key={inventory.inventoryId}>
             
@@ -140,6 +154,22 @@ const Inventory = () => {
             ))}
           </tbody>
         </table>
+        <div className="flex justify-center mt-6">
+          <ul className="flex">
+            {/* Generate pagination buttons */}
+            {Array.from(Array(totalPages), (_, index) => index + 1).map((number) => (
+              <li
+                key={number}
+                className={`${
+                  number === currentPage ? "bg-green-500" : "bg-gray-200"
+                } text-white py-2 px-4 cursor-pointer transition-all duration-300`}
+                onClick={() => handlePageChange(number)}
+              >
+                {number}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );
