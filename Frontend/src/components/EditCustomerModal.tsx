@@ -51,7 +51,7 @@ const EditCustomerModal = ({
   return (
     <Modal
       onClick={() => setShowEditModal(false)}
-      className="flex flex-col justify-center items-center bg-white"
+      className="flex flex-col justify-center items-center bg-gradient-to-r from-slate-400 to-lime-500 antialiased leading-relaxed"
     >
       <h1 className="font-bold text-2rem mb-1.5rem text-green-500 text-3xl">
         Edit Customers

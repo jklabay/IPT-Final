@@ -42,14 +42,14 @@ const AddCustomerModal = ({ setShowModal, setReload }: any) => {
   };
 
   return (
-    <Modal onClick={() => setShowModal(false)} className="flex flex-col justify-center items-center bg-white">
-      <h1 className="font-bold text-2xl mb-6 text-green-500">Add Customer</h1>
+    <Modal onClick={() => setShowModal(false)} className="flex flex-col justify-center items-center bg-gradient-to-r from-slate-400 to-lime-500 antialiased leading-relaxed">
+      <h1 className="font-bold text-2xl mb-6 text-white">Add Customer</h1>
       <form onSubmit={submitHandler}>
         <div className="flex gap-8 items-center">
           <div>
             <div className="flex items-center gap-4">
               <div className="mb-4">
-                <label htmlFor="customerNumber" className="font-semibold text-lg">Customer Number</label>
+                <label htmlFor="customerNumber" className="font-semibold text-lg text-white">Customer Number</label>
                 <input
                   ref={customerNumber}
                   id="customerNumber"
@@ -58,7 +58,7 @@ const AddCustomerModal = ({ setShowModal, setReload }: any) => {
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="customerName" className="font-semibold text-lg">Customer Name</label>
+                <label htmlFor="customerName" className="font-semibold text-lg text-white">Customer Name</label>
                 <input
                   ref={customerName}
                   id="customerName"
@@ -67,7 +67,7 @@ const AddCustomerModal = ({ setShowModal, setReload }: any) => {
                 />
               </div>
               <div className="block mb-4">
-                <label htmlFor="contactLastName" className="font-semibold text-lg">Contact Last Name</label>
+                <label htmlFor="contactLastName" className="font-semibold text-lg text-white">Contact Last Name</label>
                 <input
                   ref={contactLastNameRef}
                   id="contactLastName"
@@ -76,7 +76,7 @@ const AddCustomerModal = ({ setShowModal, setReload }: any) => {
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="contactFirstName" className="font-semibold text-lg">Contact First Name</label>
+                <label htmlFor="contactFirstName" className="font-semibold text-lg text-white">Contact First Name</label>
                 <input
                   ref={contactFirstNameRef}
                   id="contactFirstName"
@@ -88,7 +88,7 @@ const AddCustomerModal = ({ setShowModal, setReload }: any) => {
             <div className="flex items-center gap-4">
                 <div className="flex items-center gap-4">
                     <div className="mb-4">
-                    <label htmlFor="phone" className="font-semibold text-lg">Phone</label>
+                    <label htmlFor="phone" className="font-semibold text-lg text-white">Phone</label>
                     <input
                         ref={phoneRef}
                         id="phone"
@@ -99,7 +99,7 @@ const AddCustomerModal = ({ setShowModal, setReload }: any) => {
                 </div>
               <div className="flex items-center gap-4">
                 <div className="mb-4">
-                  <label htmlFor="addressLine1" className="font-semibold text-lg">Address Line 1</label>
+                  <label htmlFor="addressLine1" className="font-semibold text-lg text-white">Address Line 1</label>
                   <input
                     ref={addressLine1Ref}
                     id="addressLine1"
@@ -110,7 +110,7 @@ const AddCustomerModal = ({ setShowModal, setReload }: any) => {
               </div>
               <div className="flex items-center gap-4">
                 <div className="mb-4">
-                  <label htmlFor="addressLine2" className="font-semibold text-lg">Address Line 2</label>
+                  <label htmlFor="addressLine2" className="font-semibold text-lg text-white">Address Line 2</label>
                   <input
                     ref={addressLine2Ref}
                     id="addressLine2"
@@ -121,7 +121,7 @@ const AddCustomerModal = ({ setShowModal, setReload }: any) => {
               </div>
               <div className="flex items-center gap-4">
                 <div className="mb-4">
-                  <label htmlFor="city" className="font-semibold text-lg">City</label>
+                  <label htmlFor="city" className="font-semibold text-lg text-white">City</label>
                   <input
                     ref={cityRef}
                     id="city"
@@ -134,7 +134,7 @@ const AddCustomerModal = ({ setShowModal, setReload }: any) => {
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-4">
                 <div className="mb-4">
-                  <label htmlFor="state" className="font-semibold text-lg">State</label>
+                  <label htmlFor="state" className="font-semibold text-lg text-white">State</label>
                   <input
                     ref={stateRef}
                     id="state"
@@ -144,8 +144,8 @@ const AddCustomerModal = ({ setShowModal, setReload }: any) => {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="mb-4">
-                  <label htmlFor="postalCode" className="font-semibold text-lg">Postal Code</label>
+                <div className="mb-4"> 
+                  <label htmlFor="postalCode" className="font-semibold text-lg text-white">Postal Code</label>
                   <input
                     ref={postalCodeRef}
                     id="postalCode"
@@ -156,7 +156,7 @@ const AddCustomerModal = ({ setShowModal, setReload }: any) => {
               </div>
               <div className="flex items-center gap-4">
                 <div className="mb-4">
-                  <label htmlFor="country" className="font-semibold text-lg">Country</label>
+                  <label htmlFor="country" className="font-semibold text-lg text-white">Country</label>
                   <input
                     ref={countryRef}
                     id="country"
@@ -166,7 +166,7 @@ const AddCustomerModal = ({ setShowModal, setReload }: any) => {
                 </div>
               </div>
               <div className="block mb-4">
-                <label htmlFor="salesRepEmployeeNumber" className="font-semibold text-[1.15rem]">
+                <label htmlFor="salesRepEmployeeNumber" className="font-semibold text-[1.15rem] text-white">
                   Employee Number
                 </label>
                 <input
@@ -177,7 +177,7 @@ const AddCustomerModal = ({ setShowModal, setReload }: any) => {
                 />
               </div>
               <div className="block mb-4">
-                <label htmlFor="creditLimit" className="font-semibold text-[1.15rem]">
+                <label htmlFor="creditLimit" className="font-semibold text-[1.15rem] text-white">
                   Credit Limit
                 </label>
                 <input
